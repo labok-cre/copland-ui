@@ -79,6 +79,13 @@ export default tseslint.config(
 
   // 無視するファイル・フォルダの指定
   {
-    ignores: ['.next/**', 'node_modules/**', 'dist/**', 'build/**'],
+    ignores: [
+      '.next/**',
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      'storybook-static/**',
+      'next-env.d.ts',
+    ],
   },
 )
