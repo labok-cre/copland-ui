@@ -1,6 +1,6 @@
 # copland-ui
 
-**copland-ui** は、フロントエンドの静的UIコンポーネント集です。  
+**copland-ui** は、フロントエンドの静的UIコンポーネント集です。
 Next.js + TypeScript をベースに、保守性・再利用性を重視したモダンな設計で構築されています。
 
 ## 🌐 Storybook
@@ -11,23 +11,23 @@ Next.js + TypeScript をベースに、保守性・再利用性を重視した�
 
 ## ✨ 技術スタック
 
-| カテゴリ | 採用技術 |
-|---|---|
-| フレームワーク | [Next.js](https://nextjs.org/) (App Router) |
-| 言語 | TypeScript |
-| スタイリング | SCSS Modules |
-| コンポーネントカタログ | [Storybook](https://storybook.js.org/) |
-| テスト | Vitest |
-| Linter | ESLint + Prettier + Stylelint |
+| カテゴリ               | 採用技術                                    |
+| ---------------------- | ------------------------------------------- |
+| フレームワーク         | [Next.js](https://nextjs.org/) (App Router) |
+| 言語                   | TypeScript                                  |
+| スタイリング           | SCSS Modules                                |
+| コンポーネントカタログ | [Storybook](https://storybook.js.org/)      |
+| テスト                 | Vitest                                      |
+| Linter                 | ESLint + Prettier + Stylelint               |
 
 ## 📁 ディレクトリ構成
 
 ```
 src/
-├── app/          # Next.js App Router のページ
+├── app/          # App Router
 ├── components/
-│   ├── ui/       # 汎用的な基本コンポーネント（Button など）
-│   ├── features/ # 機能単位のコンポーネント（WebHeader, WebFooter など）
+│   ├── ui/       # 汎用性のあるコンポーネント
+│   ├── features/ # 機能単位のコンポーネント
 │   └── sections/ # ページ単位のセクションコンポーネント
 ├── hooks/        # カスタムフック
 └── styles/       # グローバルスタイル
