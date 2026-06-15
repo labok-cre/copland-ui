@@ -1,7 +1,6 @@
 import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import reactPlugin from 'eslint-plugin-react'
-// @ts-expect-error eslint-plugin-react-hooks has no official TypeScript flat config types yet
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
 import vitestPlugin from '@vitest/eslint-plugin'
