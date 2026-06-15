@@ -7,7 +7,7 @@ Next.js + TypeScript をベースに、保守性・再利用性を重視した�
 
 コンポーネントカタログを GitHub Pages で公開しています。
 
-👉 https://hidekoba-cre.github.io/copland-ui/
+👉 https://labok-cre.github.io/copland-ui/
 
 ## ✨ 技術スタック
 
