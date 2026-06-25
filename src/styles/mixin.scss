@@ -1,17 +1,14 @@
-/* mixin.scss */
-$breakpoints: (
-  'sm': 576px,
-  'md': 768px,
-  'lg': 992px,
-  'xl': 1200px,
-);
-
-@mixin mq($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
-      @content;
-    }
-  } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.";
+@mixin isSp {
+  @media (max-width: 767px) {
+    @content;
   }
 }
+
+@mixin isPc {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+
+
