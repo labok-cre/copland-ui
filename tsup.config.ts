@@ -10,7 +10,5 @@ export default defineConfig({
   minify: true,
   external: ['react', 'react-dom'],
   tsconfig: 'tsconfig.lib.json',
-  esbuildPlugins: [
-    sassPlugin()
-  ]
+  esbuildPlugins: [sassPlugin()],
 })
