@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src/declarations.d.ts",
+    "next-env.d.ts",
+    "src/index.ts",
+    "src/components/ui/**/*",
+    "src/components/features/**/*",
+    "src/components/sections/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/app",
+    "**/*.stories.tsx",
+    "**/*.stories.ts",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "vitest.config.mts"
+  ]
+}

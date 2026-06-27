@@ -1,7 +1,47 @@
 # copland-ui
 
-**copland-ui** は、フロントエンドの静的UIコンポーネント集です。
-Next.js + TypeScript をベースに、保守性・再利用性を重視したモダンな設計で構築されています。
+**copland-ui** は、React および Next.js で利用可能なモダンで再利用性の高い静的UIコンポーネントライブラリです。
+本リポジトリは、Storybook によるカタログ管理に加え、npm パッケージとして公開するためのビルド設定を備えています。
+
+## 📦 インストール
+
+```bash
+npm install copland
+# または
+yarn add copland
+# または
+pnpm add copland
+```
+
+## 🚀 使い方
+
+### 1. スタイルのインポート
+
+コンポーネントを使用する前に、アプリケーションのエントリーポイント（Next.js の `app/layout.tsx` や Vite の `main.tsx` など）でライブラリの CSS ファイルをインポートしてください。
+
+```typescript
+import 'copland/dist/index.css';
+```
+
+### 2. コンポーネントの使用例
+
+```tsx
+import { Button, WebHeader, WebFooter } from 'copland';
+
+export default function App() {
+  return (
+    <div>
+      <WebHeader siteName="My Site" />
+      <main style={{ padding: '2rem' }}>
+        <Button label="クリック" variant="primary" onClick={() => alert('Hello!')} />
+      </main>
+      <WebFooter siteName="My Site" />
+    </div>
+  );
+}
+```
+
+---
 
 ## 🌐 Storybook
 
@@ -9,61 +49,64 @@ Next.js + TypeScript をベースに、保守性・再利用性を重視した�
 
 👉 https://labok-cre.github.io/copland-ui/
 
-## ✨ 技術スタック
+---
 
-| カテゴリ               | 採用技術                                    |
-| ---------------------- | ------------------------------------------- |
-| フレームワーク         | [Next.js](https://nextjs.org/) (App Router) |
-| 言語                   | TypeScript                                  |
-| スタイリング           | SCSS Modules                                |
-| コンポーネントカタログ | [Storybook](https://storybook.js.org/)      |
-| テスト                 | Vitest                                      |
-| Linter                 | ESLint + Prettier + Stylelint               |
+## ✨ 提供コンポーネント
+
+* **`Button`**: プライマリ・セカンダリ表示をサポートする汎用ボタン部品。
+* **`WebHeader`**: サイト名と基本的なナビゲーションを提供するヘッダー。
+* **`WebFooter`**: コピーライトを表示する標準フッター。
+
+---
 
 ## 📁 ディレクトリ構成
 
 ```
 src/
-├── app/          # App Router
+├── app/          # 開発・確認用の Next.js App Router
 ├── components/
-│   ├── ui/       # 汎用性のあるコンポーネント
-│   ├── features/ # 機能単位のコンポーネント
+│   ├── ui/       # 汎用UIコンポーネント (例: Button)
+│   ├── features/ # 機能単位のコンポーネント (例: WebHeader, WebFooter)
 │   └── sections/ # ページ単位のセクションコンポーネント
-├── hooks/        # カスタムフック
-└── styles/       # グローバルスタイル
+├── index.ts      # ライブラリの公開エントリーポイント
+├── styles/       # グローバルスタイル・共通SCSS変数
 ```
 
-## 🚀 コマンド一覧
+---
+
+## 🏗️ 開発者向けガイド
 
 ### セットアップ
 
 ```bash
-# 依存関係のインストール（CI環境・初回推奨）
-npm ci
-
-# 依存関係のインストール（開発中の追加・更新時）
 npm install
 ```
 
-### 開発
+### 開発用サーバー起動
 
 ```bash
-# 開発サーバー起動（Next.js）
+# Next.js の確認用ページ起動
 npm run dev
 
 # Storybook 起動
 npm run storybook
 ```
 
-### ビルド
+### ライブラリのビルド
+
+外部公開用（ESM, CommonJS, 型定義ファイル, CSS）のビルドを行います。出力物は `dist/` ディレクトリに生成されます。
 
 ```bash
-# Next.js プロダクションビルド
-npm run build
-
-# Storybook 静的ファイルのビルド
-npm run build-storybook
+npm run build:lib
 ```
+
+### パッケージの公開手順
+
+1. `package.json` のバージョン（`"version"`）を更新。
+2. 以下のコマンドで公開。ビルドは `prepublishOnly` により自動実行されます。
+   ```bash
+   npm publish
+   ```
 
 ### 品質チェック
 
@@ -80,10 +123,3 @@ npm run typecheck
 # ユニットテスト
 npm run test
 ```
-
-## 🏗️ 設計方針
-
-- **責務分離**: `ui/`（汎用部品）→ `features/`（機能単位）→ `sections/`（ページ単位）の3層構造
-- **CSS Modules**: スタイルのスコープをコンポーネント単位で管理し、命名衝突を防止
-- **Story-Driven Development**: 各コンポーネントに Storybook の Story を紐づけ、カタログとして管理
-- **型安全**: すべてのコンポーネントに TypeScript の Props インターフェースを定義
