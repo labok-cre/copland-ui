@@ -1,13 +1,9 @@
-import { fileURLToPath, URL } from 'url'
+import type { StorybookConfig } from '@storybook/nextjs-vite'
 import path from 'path'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
 const srcPath = path.resolve(__dirname, '../src')
 
-/** @type { import('@storybook/nextjs-vite').StorybookConfig } */
-const config = {
+const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: ['@storybook/addon-onboarding', '@storybook/addon-docs'],
   framework: {
@@ -16,10 +12,6 @@ const config = {
   },
   staticDirs: ['../public'],
 
-  /**
-   * SCSS 内の `@/` エイリアスを解決するため、vite-tsconfig-paths と
-   * scss カスタムインポーターを追加する。
-   */
   viteFinal: async (config) => {
     const { mergeConfig } = await import('vite')
     const { default: tsconfigPaths } = await import('vite-tsconfig-paths')
@@ -32,7 +24,7 @@ const config = {
             api: 'modern',
             importers: [
               {
-                findFileUrl(url) {
+                findFileUrl(url: string) {
                   if (!url.startsWith('@/')) return null
                   const resolved = path.resolve(srcPath, url.slice(2)).replace(/\\/g, '/')
                   return new URL('file:///' + resolved)
