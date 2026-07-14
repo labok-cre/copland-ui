@@ -1,13 +1,13 @@
 :root {
   /* Text */
-  --text-primary: #1e2229;          /* AAA: vs #ffffff (15.6:1) */
-  --text-secondary: #5a6578;        /* AAA: vs #ffffff (6.2:1 -> AAクリア、通常文字サイズ推奨) */
+  --text-primary: #fff;          /* AAA: vs #ffffff (15.6:1) */
+  --text-secondary: #333;        /* AAA: vs #ffffff (6.2:1 -> AAクリア、通常文字サイズ推奨) */
   --text-tertiary: #6e7b91;         /* AA: vs #ffffff (4.7:1) */
   --text-placeholder: #6c7a89;      /* AA: vs #ffffff (4.9:1) */
   --text-pressed-primary: #0f1115;  /* AAA: vs #ffffff (18.5:1) */
   --text-key: #1a56db;              /* AA: vs #ffffff (6.5:1) */
   --text-disabled: #9eb0c2;         /* 非表示・非アクティブ用 (3.0:1) */
-  --text-label-blue: #1c3d9a;       /* AAA: vs --background-label-blue (9.2:1) */
+  --text-label-blue: #437eff;       /* AAA: vs --background-label-blue (9.2:1) */
   --text-label-gray: #474f59;       /* AAA: vs --background-label-gray (8.5:1) */
   --text-label-green: #136327;      /* AAA: vs --background-label-green (7.8:1) */
   --text-label-yellow: #855200;     /* AA: vs --background-label-yellow (5.8:1) */
@@ -17,7 +17,7 @@
   --bg-primary: #fff;
   --bg-secondary: #f8f9fa;
   --bg-tertiary: #f1f3f5;
-  --bg-key: #1a56db;                /* 文字白に対して AA (6.5:1) */
+  --bg-key: #437eff;                /* 文字白に対して AA (6.5:1) */
   --bg-key-hover: #164bb8;
   --bg-disabled: #e5eaf2;
   --background-label-blue: #edf2ff;
@@ -28,44 +28,8 @@
 
   /* Border */
   --border-primary: #e1e6eb;
-  --border-secondary: #c5d0db;
+  --border-secondary: #333;
   --border-key: #1a56db;
   --border-disabled: #e1e6eb;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Text */
-    --text-primary: #f3f4f6;          /* AAA: vs --bg-primary (16.5:1) */
-    --text-secondary: #a3b3c9;        /* AAA: vs --bg-primary (7.8:1) */
-    --text-tertiary: #7b8fa8;         /* AA: vs --bg-primary (4.7:1) */
-    --text-placeholder: #7b8fa8;      /* AA: vs --bg-primary (4.7:1) */
-    --text-pressed-primary: #fff;  /* AAA: vs --bg-primary (18.8:1) */
-    --text-key: #3b82f6;              /* AA: vs --bg-primary (5.8:1) */
-    --text-disabled: #3d4857;         /* 非アクティブ用 */
-    --text-label-blue: #79b1ff;       /* AAA: vs --background-label-blue (7.6:1) */
-    --text-label-gray: #c1cddc;       /* AAA: vs --background-label-gray (7.8:1) */
-    --text-label-green: #6ce686;      /* AAA: vs --background-label-green (8.2:1) */
-    --text-label-yellow: #f2c754;     /* AAA: vs --background-label-yellow (8.3:1) */
-    --text-label-red: #ff8b82;        /* AAA: vs --background-label-red (7.6:1) */
-
-    /* Background */
-    --bg-primary: #0f1217;            /* 深みのある独自のネイビーダークグレー */
-    --bg-secondary: #181d25;
-    --bg-tertiary: #222933;
-    --bg-key: #2563eb;                /* 文字白に対して AA (5.7:1) */
-    --bg-key-hover: #1d4ed8;
-    --bg-disabled: #222933;
-    --background-label-blue: #112340;
-    --background-label-gray: #242b35;
-    --background-label-green: #132c1c;
-    --background-label-yellow: #2c2410;
-    --background-label-red: #341919;
-
-    /* Border */
-    --border-primary: #222933;
-    --border-secondary: #323c4a;
-    --border-key: #3b82f6;
-    --border-disabled: #222933;
-  }
-}

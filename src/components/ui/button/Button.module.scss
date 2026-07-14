@@ -1,35 +1,166 @@
 /* Button.module.scss */
+
+// ============================================================
+// Size mixins
+// ============================================================
+
+@mixin size-S {
+  width: 120px;
+  height: 32px;
+  font-size: var(--typo-size-14);
+  line-height: var(--typo-line-height-20);
+  border-radius: var(--radius-6);
+}
+
+@mixin size-S-flex {
+  @include size-S;
+
+  width: auto;
+  padding: 0 12px;
+}
+
+@mixin size-M {
+  width: 160px;
+  height: 44px;
+  font-size: var(--typo-size-14);
+  line-height: var(--typo-line-height-20);
+  border-radius: var(--radius-8);
+}
+
+@mixin size-M-flex {
+  @include size-M;
+
+  width: auto;
+  padding: 0 16px;
+}
+
+@mixin size-L {
+  width: 343px;
+  height: 48px;
+  font-size: var(--typo-size-16);
+  line-height: var(--typo-line-height-24);
+  border-radius: var(--radius-8);
+}
+
+@mixin size-L-flex {
+  @include size-L;
+
+  width: auto;
+  padding: 0 20px;
+}
+
+@mixin size-XL {
+  width: 343px;
+  height: 56px;
+  font-size: var(--typo-size-16);
+  line-height: var(--typo-line-height-24);
+  border-radius: var(--radius-8);
+}
+
+@mixin size-XL-flex {
+  @include size-XL;
+
+  width: auto;
+  padding: 0 24px;
+}
+
+// ============================================================
+// Button
+// ============================================================
+
 .button {
-  display: inline-flex;
+  // ローカルトークン
+  --button-opacity-hover: 0.72;
+  --button-opacity-active: 0.48;
+
+  // ベーススタイル
+  display: flex;
+  gap: 8px;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
-  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
   cursor: pointer;
-  background-color: #0070f3;
-  border: none;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+  transition:
+    opacity 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
 
   &:hover {
-    background-color: #0051a8;
+    opacity: var(--button-opacity-hover);
   }
 
-  &.primary {
-    background-color: #0070f3;
+  &:active {
+    opacity: var(--button-opacity-active);
+  }
 
-    &:hover {
-      background-color: #0051a8;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  // --------------------------------------------------
+  // Size variants
+  // --------------------------------------------------
+
+  &-S      { @include size-S; }
+  &-S-flex { @include size-S-flex; }
+  &-M      { @include size-M; }
+  &-M-flex { @include size-M-flex; }
+  &-L      { @include size-L; }
+  &-L-flex { @include size-L-flex; }
+  &-XL     { @include size-XL; }
+  &-XL-flex { @include size-XL-flex; }
+  &-small  { @include size-S; }
+  &-medium { @include size-M; }
+  &-large  { @include size-L; }
+
+  // --------------------------------------------------
+  // Color variants
+  // --------------------------------------------------
+
+  &-primary {
+    color: var(--text-primary);
+    background-color: var(--bg-key);
+    border-color: var(--border-primary);
+
+    &-disabled {
+      color: var(--text-disabled);
+      background-color: var(--bg-disabled);
+      border-color: var(--border-disabled);
     }
   }
 
-  &.secondary {
-    color: #0070f3;
+  &-secondary {
+    color: var(--text-secondary);
     background-color: transparent;
-    border: 1px solid #0070f3;
+    border-color: var(--border-secondary);
 
-    &:hover {
-      background-color: rgb(0 112 243 / 5%);
+    &-disabled {
+      color: var(--text-disabled);
+      background-color: transparent;
+      border-color: var(--border-disabled);
     }
+  }
+
+  &-tertiary {
+    color: var(--text-key);
+    background-color: transparent;
+    border-color: transparent;
+
+    &-disabled {
+      color: var(--text-disabled);
+    }
+  }
+
+
+  // --------------------------------------------------
+  // Loading state
+  // --------------------------------------------------
+
+  &-loading {
+    pointer-events: none;
   }
 }

@@ -1,12 +1,28 @@
 /* variables.scss */
 
 :root {
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  /* spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+
+  /* border */
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-4: 4px;
+
+  /* radius */
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
   --radius-max: 9999px;
+
+  /* z-index */
   --zindex-below: -1;
   --zindex-0: 0;
   --zindex-10: 10;

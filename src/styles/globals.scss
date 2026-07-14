@@ -1,9 +1,9 @@
-@import './layer-order.css';
-@import './color';
-@import './variables';
-@import './font';
-@import './reset.css';
-@import './mixin';
+@use './layer-order.css';
+@use './color';
+@use './variables';
+@use './font';
+@use './reset.css';
+@use './mixin' as *;
 
 @layer base {
   :root {
@@ -43,11 +43,6 @@
     }
   }
 
-  @media (prefers-color-scheme: dark) {
-    html {
-      color-scheme: dark;
-    }
-  }
 
   .only-sp {
     @include isPc {
