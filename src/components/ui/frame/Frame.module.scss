@@ -3,8 +3,8 @@
 @layer components {
   .frame {
     padding: var(--spacing-12);
-    border: var(--border-1) solid var(--border-primary);
     background: var(--bg-primary);
+    border: var(--border-1) solid var(--border-primary);
     border-radius: var(--radius-8);
   }
 }
