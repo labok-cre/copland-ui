@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { Frame } from './Frame'
 
 const meta: Meta<typeof Frame> = {
@@ -8,7 +8,8 @@ const meta: Meta<typeof Frame> = {
   parameters: {
     docs: {
       description: {
-        component: '汎用性の高いフレーム枠コンポーネントです。枠の内部に表示するコンテンツを自由に配置できます',
+        component:
+          '汎用性の高いフレーム枠コンポーネントです。枠の内部に表示するコンテンツを自由に配置できます',
       },
     },
   },

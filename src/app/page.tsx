@@ -8,7 +8,9 @@ export default function Home() {
       <WebHeader siteName="Copland UI" />
 
       <main>
-        <Button variant="primary" size="M">Button</Button>
+        <Button variant="primary" size="M">
+          Button
+        </Button>
       </main>
 
       <WebFooter siteName="Copland UI" />

@@ -1,6 +1,9 @@
+import { fileURLToPath, URL } from 'url'
 import path from 'path'
 
-// esbuild が __dirname を注入するのでそのまま使用できる
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 const srcPath = path.resolve(__dirname, '../src')
 
 /** @type { import('@storybook/nextjs-vite').StorybookConfig } */
@@ -31,9 +34,7 @@ const config = {
               {
                 findFileUrl(url) {
                   if (!url.startsWith('@/')) return null
-                  const resolved = path
-                    .resolve(srcPath, url.slice(2))
-                    .replace(/\\/g, '/')
+                  const resolved = path.resolve(srcPath, url.slice(2)).replace(/\\/g, '/')
                   return new URL('file:///' + resolved)
                 },
               },
