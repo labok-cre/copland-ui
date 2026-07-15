@@ -1,3 +1,3 @@
 export { default as Button } from './components/ui/button/Button'
-export { default as WebHeader } from './components/features/web-header/WebHeader'
-export { default as WebFooter } from './components/features/web-footer/WebFooter'
+export { default as Header } from './components/features/header/Header'
+export { default as Footer } from './components/features/footer/Footer'

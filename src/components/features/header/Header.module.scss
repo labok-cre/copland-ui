@@ -1,0 +1,40 @@
+/* Header.module.scss */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-16);
+  background-color: var(--bg-primary);
+  border-bottom: var(--border-1) solid var(--border-primary);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: var(--typo-size-20);
+    font-weight: bold;
+    color: var(--text-secondary);
+  }
+
+  .logoImage {
+    display: block;
+    width: auto;
+    max-height: 32px;
+    object-fit: contain;
+  }
+
+  .nav {
+    display: flex;
+    gap: var(--spacing-24);
+
+    .link {
+      font-size: var(--typo-size-14);
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--text-secondary);
+      }
+    }
+  }
+}

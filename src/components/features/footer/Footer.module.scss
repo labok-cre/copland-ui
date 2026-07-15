@@ -1,0 +1,13 @@
+/* Footer.module.scss */
+.footer {
+  padding: var(--spacing-32);
+  margin-top: auto;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  border-top: var(--border-1) solid var(--border-primary);
+
+  .copy {
+    font-size: var(--typo-size-12);
+    color: var(--text-tertiary);
+  }
+}
