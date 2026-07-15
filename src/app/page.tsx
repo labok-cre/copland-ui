@@ -1,19 +1,24 @@
-import WebHeader from '@/components/features/web-header/WebHeader'
+import { Header } from '@/components/features/header/Header'
 import { Button } from '@/components/ui/button/Button'
-import WebFooter from '@/components/features/web-footer/WebFooter'
+import { Footer } from '@/components/features/footer/Footer'
 
 export default function Home() {
   return (
     <>
-      <WebHeader siteName="Copland UI" />
+      <Header>
+        <Header.Logo>Copland UI</Header.Logo>
+        <Header.Nav>
+          <Header.NavItem href="/">ホーム</Header.NavItem>
+        </Header.Nav>
+      </Header>
 
       <main>
-        <Button variant="primary" size="M">
-          Button
-        </Button>
+        <Button variant="primary" size="M">Button</Button>
       </main>
 
-      <WebFooter siteName="Copland UI" />
+      <Footer>
+        <Footer.Copy siteName="Copland UI" />
+      </Footer>
     </>
   )
 }
