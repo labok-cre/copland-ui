@@ -4,7 +4,7 @@ import styles from './Header.module.scss'
 
 // ---- 型定義 ---------------------------------------------------------------
 
-interface HeaderRootProps extends ComponentProps<'header'> {}
+type HeaderRootProps = ComponentProps<'header'>
 
 interface HeaderLogoProps extends ComponentProps<'div'> {
   /** ロゴ画像の URL。指定すると `<img>` を自動生成します。 */
@@ -15,7 +15,7 @@ interface HeaderLogoProps extends ComponentProps<'div'> {
   children?: ReactNode
 }
 
-interface HeaderNavProps extends ComponentProps<'nav'> {}
+type HeaderNavProps = ComponentProps<'nav'>
 
 interface HeaderNavItemProps extends ComponentProps<'a'> {
   /** リンク先 URL */
@@ -25,9 +25,7 @@ interface HeaderNavItemProps extends ComponentProps<'a'> {
 // ---- サブコンポーネント ----------------------------------------------------
 
 const HeaderLogo = ({ src, alt = '', children, className, ...props }: HeaderLogoProps) => {
-  const content = src ? (
-    <img src={src} alt={alt} className={styles.logoImage} />
-  ) : children
+  const content = src ? <img src={src} alt={alt} className={styles.logoImage} /> : children
 
   return (
     <div {...props} className={clsx(styles.logo, className)}>

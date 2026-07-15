@@ -53,13 +53,7 @@ const IndeterminateIcon = ({ className }: { className?: string }) => (
 
 // ---- コンポーネント --------------------------------------------------------
 
-export const Check = ({
-  label,
-  className,
-  id,
-  indeterminate = false,
-  ...props
-}: CheckProps) => {
+export const Check = ({ label, className, id, indeterminate = false, ...props }: CheckProps) => {
   const autoId = useId()
   const inputId = id ?? autoId
   const inputRef = useRef<HTMLInputElement>(null)
@@ -76,13 +70,7 @@ export const Check = ({
       className={clsx(styles.label, className)}
       data-disabled={props.disabled ? '' : undefined}
     >
-      <input
-        {...props}
-        ref={inputRef}
-        id={inputId}
-        type="checkbox"
-        className={styles.input}
-      />
+      <input {...props} ref={inputRef} id={inputId} type="checkbox" className={styles.input} />
       <span className={styles.box} aria-hidden="true">
         {indeterminate ? (
           <IndeterminateIcon className={styles.icon} />

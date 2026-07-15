@@ -4,7 +4,7 @@ import styles from './Footer.module.scss'
 
 // ---- 型定義 ---------------------------------------------------------------
 
-interface FooterRootProps extends ComponentProps<'footer'> {}
+type FooterRootProps = ComponentProps<'footer'>
 
 interface FooterCopyProps extends ComponentProps<'p'> {
   /**
