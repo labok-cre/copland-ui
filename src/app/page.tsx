@@ -13,7 +13,9 @@ export default function Home() {
       </Header>
 
       <main>
-        <Button variant="primary" size="M">Button</Button>
+        <Button variant="primary" size="M">
+          Button
+        </Button>
       </main>
 
       <Footer>
