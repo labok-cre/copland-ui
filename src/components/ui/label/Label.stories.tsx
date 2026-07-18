@@ -29,7 +29,7 @@ const meta: Meta<typeof Label> = {
     color: {
       description: 'テーマカラー',
       control: 'select',
-      options: ['blue', 'gray', 'green', 'yellow', 'red'],
+      options: ['blue', 'gray', 'green', 'yellow', 'red', 'white'],
     },
     shape: {
       description: '角の形状',
@@ -82,6 +82,9 @@ export const Colors: Story = {
       </Label>
       <Label appearance="contained" color="red" shape="square">
         Red
+      </Label>
+      <Label appearance="contained" color="white" shape="square">
+        White
       </Label>
     </div>
   ),

@@ -12,7 +12,7 @@
     align-items: center;
     font-size: var(--typo-size-20);
     font-weight: bold;
-    color: var(--text-secondary);
+    color: var(--text-primary);
   }
 
   .logoImage {
@@ -33,7 +33,7 @@
       transition: color 0.2s ease;
 
       &:hover {
-        color: var(--text-secondary);
+        color: var(--text-primary);
       }
     }
   }

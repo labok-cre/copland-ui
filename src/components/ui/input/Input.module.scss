@@ -20,7 +20,7 @@
   .label {
     font-size: var(--typo-size-14);
     font-weight: bold;
-    color: var(--text-secondary);
+    color: var(--text-primary);
   }
 
   // ヒント・補足テキスト
@@ -39,7 +39,7 @@
     padding: 0 12px;
     font-size: var(--typo-size-14);
     line-height: var(--typo-line-height-20);
-    color: var(--text-secondary);
+    color: var(--text-primary);
     background: var(--bg-secondary);
     border: var(--border-1) solid var(--border-primary);
     border-radius: var(--radius-8);

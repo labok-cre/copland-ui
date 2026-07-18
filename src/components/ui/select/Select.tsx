@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import * as RadixSelect from '@radix-ui/react-select'
+import { ChevronDown, Check } from 'lucide-react'
 import { ComponentProps } from 'react'
 import styles from './Select.module.scss'
 
@@ -12,46 +13,6 @@ type SelectLabelProps = ComponentProps<'label'>
 type SelectTriggerProps = ComponentProps<typeof RadixSelect.Trigger>
 type SelectContentProps = ComponentProps<typeof RadixSelect.Content>
 type SelectItemProps = ComponentProps<typeof RadixSelect.Item>
-
-// ---- アイコン -------------------------------------------------------------
-
-const ChevronDownIcon = () => (
-  <svg
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    width={16}
-    height={16}
-  >
-    <path
-      d="M4 6l4 4 4-4"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
-
-const CheckIcon = () => (
-  <svg
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    width={16}
-    height={16}
-  >
-    <path
-      d="M3 8l3.5 3.5L13 5"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
 
 // ---- Select（ルートコンテナ） ----------------------------------------------
 
@@ -91,7 +52,7 @@ export const SelectTrigger = ({ children, className, ...props }: SelectTriggerPr
     <RadixSelect.Trigger {...props} className={clsx(styles.trigger, className)}>
       <span className={styles.triggerText}>{children ?? <RadixSelect.Value />}</span>
       <RadixSelect.Icon className={styles.icon}>
-        <ChevronDownIcon />
+        <ChevronDown size={16} />
       </RadixSelect.Icon>
     </RadixSelect.Trigger>
   )
@@ -123,7 +84,7 @@ export const SelectItem = ({ children, className, ...props }: SelectItemProps) =
   return (
     <RadixSelect.Item {...props} className={clsx(styles.item, className)}>
       <RadixSelect.ItemIndicator className={styles.itemIndicator}>
-        <CheckIcon />
+        <Check size={16} />
       </RadixSelect.ItemIndicator>
       <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
     </RadixSelect.Item>

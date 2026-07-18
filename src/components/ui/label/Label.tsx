@@ -8,7 +8,7 @@ export interface LabelProps extends ComponentProps<'span'> {
   /** ラベルのスタイルタイプ（塗りつぶし or 枠線のみ） */
   appearance: 'contained' | 'outlined'
   /** ラベルのテーマカラー */
-  color: 'blue' | 'gray' | 'green' | 'yellow' | 'red'
+  color: 'blue' | 'gray' | 'green' | 'yellow' | 'red' | 'white'
   /** ラベルの角の形状（四角 or カプセル型） */
   shape: 'square' | 'pill'
   /** テキストを太字にするか */

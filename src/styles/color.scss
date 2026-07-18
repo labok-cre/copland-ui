@@ -1,7 +1,7 @@
 :root {
   /* Text */
-  --text-primary: #fff;          /* AAA: vs #ffffff (15.6:1) */
-  --text-secondary: #333;        /* AAA: vs #ffffff (6.2:1 -> AAクリア、通常文字サイズ推奨) */
+  --text-primary: #333;          /* AAA: vs #ffffff (15.6:1) */
+  --text-secondary: #fff;        /* AAA: vs #ffffff (6.2:1 -> AAクリア、通常文字サイズ推奨) */
   --text-tertiary: #6e7b91;         /* AA: vs #ffffff (4.7:1) */
   --text-placeholder: #6c7a89;      /* AA: vs #ffffff (4.9:1) */
   --text-pressed-primary: #0f1115;  /* AAA: vs #ffffff (18.5:1) */
@@ -34,4 +34,3 @@
   --border-disabled: #e1e6eb;
   --border-error: #e53935;
 }
-

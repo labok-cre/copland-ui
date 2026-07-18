@@ -79,7 +79,7 @@ export const Interactive: Story = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
+        <p style={{ fontSize: '14px', color: 'var(--text-primary)' }}>
           現在のページ: <strong>{currentPage}</strong> / {totalPages}
         </p>
         <Pagination>

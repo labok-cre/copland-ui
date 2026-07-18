@@ -42,26 +42,37 @@
     &-blue {
       --current-bg: var(--bg-label-blue);
       --current-text: var(--text-label-blue);
+      --current-border: transparent;
     }
 
     &-gray {
       --current-bg: var(--bg-label-gray);
       --current-text: var(--text-label-gray);
+      --current-border: transparent;
     }
 
     &-green {
       --current-bg: var(--bg-label-green);
       --current-text: var(--text-label-green);
+      --current-border: transparent;
     }
 
     &-yellow {
       --current-bg: var(--bg-label-yellow);
       --current-text: var(--text-label-yellow);
+      --current-border: transparent;
     }
 
     &-red {
       --current-bg: var(--bg-label-red);
       --current-text: var(--text-label-red);
+      --current-border: transparent;
+    }
+
+    &-white {
+      --current-bg: var(--bg-primary);
+      --current-text: var(--text-primary);
+      --current-border: var(--border-primary);
     }
   }
 
@@ -69,7 +80,7 @@
   .appearance-contained {
     color: var(--current-text);
     background: var(--current-bg);
-    border: var(--border-1) solid transparent;
+    border: var(--border-1) solid var(--current-border);
   }
 
   // 枠線のみ

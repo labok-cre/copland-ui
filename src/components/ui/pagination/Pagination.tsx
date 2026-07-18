@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { ComponentProps } from 'react'
 import styles from './Pagination.module.scss'
 
@@ -11,46 +12,6 @@ type PaginationItemProps = ComponentProps<'button'> & {
 }
 type PaginationEllipsisProps = ComponentProps<'span'>
 type PaginationPrevNextProps = ComponentProps<'button'>
-
-// ---- アイコン -------------------------------------------------------------
-
-const ChevronLeftIcon = () => (
-  <svg
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    width={16}
-    height={16}
-  >
-    <path
-      d="M10 12L6 8l4-4"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
-
-const ChevronRightIcon = () => (
-  <svg
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    width={16}
-    height={16}
-  >
-    <path
-      d="M6 4l4 4-4 4"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
 
 // ---- Pagination（ルートコンテナ） -------------------------------------------
 
@@ -103,7 +64,7 @@ export const PaginationPrev = ({ className, ...props }: PaginationPrevNextProps)
       type="button"
       className={clsx(styles.button, className)}
     >
-      <ChevronLeftIcon />
+      <ChevronLeft size={16} />
     </button>
   )
 }
@@ -119,7 +80,7 @@ export const PaginationNext = ({ className, ...props }: PaginationPrevNextProps)
       type="button"
       className={clsx(styles.button, className)}
     >
-      <ChevronRightIcon />
+      <ChevronRight size={16} />
     </button>
   )
 }

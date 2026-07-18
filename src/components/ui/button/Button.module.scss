@@ -124,7 +124,7 @@
   // --------------------------------------------------
 
   &-primary {
-    color: var(--text-primary);
+    color: var(--text-secondary);
     background-color: var(--bg-key);
     border-color: var(--border-primary);
 
@@ -136,7 +136,7 @@
   }
 
   &-secondary {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     background-color: transparent;
     border-color: var(--border-secondary);
 

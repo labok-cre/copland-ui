@@ -37,7 +37,7 @@
   .item {
     @extend %base-shape;
 
-    color: var(--text-secondary);
+    color: var(--text-primary);
     cursor: pointer;
     background: transparent;
     border: none;
@@ -60,7 +60,7 @@
 
     // 現在表示中のアクティブなページ
     &-current {
-      color: var(--text-primary);
+      color: var(--text-secondary);
       cursor: default;
       background: var(--bg-key);
 
@@ -74,7 +74,7 @@
   .button {
     @extend %base-shape;
 
-    color: var(--text-secondary);
+    color: var(--text-primary);
     cursor: pointer;
     background: transparent;
     border: var(--border-1) solid var(--border-primary);
