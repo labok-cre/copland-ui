@@ -1,0 +1,81 @@
+/* Label.module.scss */
+
+@layer components {
+  .root {
+    display: inline-flex;
+    gap: var(--spacing-4);
+    align-items: center;
+    justify-content: center;
+    padding: 4px var(--spacing-8);
+    font-size: var(--typo-size-12);
+    line-height: var(--typo-line-height-16);
+    white-space: nowrap;
+  }
+
+  // ステータスドット
+  .dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    background-color: var(--current-text);
+    border-radius: 50%;
+  }
+
+  // 太字指定
+  .is-bold {
+    font-weight: bold;
+  }
+
+  // 形状 (shape)
+  .shape {
+    &-square {
+      border-radius: var(--radius-4);
+    }
+
+    &-pill {
+      border-radius: var(--radius-max);
+    }
+  }
+
+  // カラー定義（CSSカスタムプロパティで各スタイルに中継）
+  .color {
+    &-blue {
+      --current-bg: var(--bg-label-blue);
+      --current-text: var(--text-label-blue);
+    }
+
+    &-gray {
+      --current-bg: var(--bg-label-gray);
+      --current-text: var(--text-label-gray);
+    }
+
+    &-green {
+      --current-bg: var(--bg-label-green);
+      --current-text: var(--text-label-green);
+    }
+
+    &-yellow {
+      --current-bg: var(--bg-label-yellow);
+      --current-text: var(--text-label-yellow);
+    }
+
+    &-red {
+      --current-bg: var(--bg-label-red);
+      --current-text: var(--text-label-red);
+    }
+  }
+
+  // 塗りつぶし
+  .appearance-contained {
+    color: var(--current-text);
+    background: var(--current-bg);
+    border: var(--border-1) solid transparent;
+  }
+
+  // 枠線のみ
+  .appearance-outlined {
+    color: var(--current-text);
+    background: transparent;
+    border: var(--border-1) solid var(--current-text);
+  }
+}
