@@ -1,0 +1,172 @@
+/* Select.module.scss */
+
+@layer components {
+  .root {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    width: 100%;
+  }
+
+  // ラベル
+  .label {
+    font-size: var(--typo-size-14);
+    font-weight: bold;
+    color: var(--text-secondary);
+  }
+
+  // トリガーボタン
+  .trigger {
+    display: flex;
+    gap: var(--spacing-8);
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    font-size: var(--typo-size-14);
+    color: var(--text-secondary);
+    white-space: nowrap;
+    cursor: pointer;
+    background: var(--bg-secondary);
+    border: var(--border-1) solid var(--border-primary);
+    border-radius: var(--radius-8);
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease;
+
+    &:hover {
+      border-color: var(--border-key);
+    }
+
+    &:focus-visible {
+      border-color: var(--bg-key);
+      outline: 1px solid var(--bg-key);
+    }
+
+    // Radix が付与する data-placeholder 状態（未選択時）
+    &[data-placeholder] {
+      color: var(--text-placeholder);
+    }
+
+    &[data-disabled] {
+      color: var(--text-disabled);
+      cursor: not-allowed;
+      background: var(--bg-disabled);
+      border-color: var(--border-disabled);
+    }
+  }
+
+  // トリガー内のテキスト（はみ出し省略）
+  .triggerText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // シェブロンアイコン
+  .icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: transform 0.2s ease;
+
+    // Radix が open 時に data-state="open" を付与する
+    [data-state='open'] > & {
+      transform: rotate(180deg);
+    }
+  }
+
+  // ドロップダウンコンテンツ
+  .content {
+    min-width: var(--radix-select-trigger-width);
+    max-height: var(--radix-select-content-available-height);
+    overflow: hidden;
+    background: var(--bg-primary);
+    border: var(--border-1) solid var(--border-primary);
+    border-radius: var(--radius-8);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+
+    // 開閉アニメーション
+    &[data-state='open'] {
+      animation: slide-down 0.15s ease;
+    }
+
+    &[data-state='closed'] {
+      animation: slide-up 0.1s ease;
+    }
+  }
+
+  .viewport {
+    padding: var(--spacing-4) 0;
+  }
+
+  // 選択肢アイテム
+  .item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px 10px 36px;
+    font-size: var(--typo-size-14);
+    line-height: var(--typo-line-height-20);
+    color: var(--text-secondary);
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.1s ease;
+
+    &[data-highlighted] {
+      background: var(--bg-tertiary);
+    }
+
+    &[data-state='checked'] {
+      font-weight: 500;
+      color: var(--text-key);
+    }
+
+    &[data-disabled] {
+      color: var(--text-disabled);
+      pointer-events: none;
+    }
+  }
+
+  // チェックマーク（選択済みアイコン）
+  .itemIndicator {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-key);
+    transform: translateY(-50%);
+  }
+}
+
+// ---- アニメーション --------------------------------------------------------
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
