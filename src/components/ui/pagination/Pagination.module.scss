@@ -1,0 +1,101 @@
+/* Pagination.module.scss */
+
+@use '@/styles/mixin' as *;
+
+@layer components {
+  .root {
+    display: flex;
+    gap: var(--spacing-8);
+    align-items: center;
+
+    @include isSp {
+      gap: var(--spacing-4);
+    }
+  }
+
+  // 共通のベース形状
+  %base-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    font-size: var(--typo-size-14);
+    font-weight: bold;
+    line-height: 1;
+    border-radius: var(--radius-max);
+  }
+
+  // 省略記号
+  .ellipsis {
+    @extend %base-shape;
+
+    color: var(--text-tertiary);
+  }
+
+  // ページ番号アイテム
+  .item {
+    @extend %base-shape;
+
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background: var(--bg-tertiary);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--bg-key);
+    }
+
+    &:disabled {
+      color: var(--text-disabled);
+      cursor: not-allowed;
+    }
+
+    // 現在表示中のアクティブなページ
+    &-current {
+      color: var(--text-primary);
+      cursor: default;
+      background: var(--bg-key);
+
+      &:hover:not(:disabled) {
+        background: var(--bg-key-hover);
+      }
+    }
+  }
+
+  // 前へ / 次へボタン
+  .button {
+    @extend %base-shape;
+
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: transparent;
+    border: var(--border-1) solid var(--border-primary);
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background: var(--bg-secondary);
+      border-color: var(--border-secondary);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--bg-key);
+    }
+
+    &:disabled {
+      color: var(--text-disabled);
+      cursor: not-allowed;
+      background: var(--bg-disabled);
+      border-color: var(--border-disabled);
+    }
+  }
+}
