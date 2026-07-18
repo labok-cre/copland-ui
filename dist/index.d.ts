@@ -1,11 +1,19 @@
 import * as react from 'react';
+import { ComponentProps } from 'react';
 
-interface ButtonProps {
-    label: string;
-    variant?: 'primary' | 'secondary';
-    onClick?: () => void;
+type ButtonSize = 'S' | 'M' | 'L' | 'XL' | 'S-flex' | 'M-flex' | 'L-flex' | 'XL-flex' | 'small' | 'medium' | 'large';
+type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'danger-primary' | 'danger-secondary' | 'info';
+interface ButtonProps extends ComponentProps<'button'> {
+    /** ボタンのサイズ（必須） */
+    size: ButtonSize;
+    /** ボタンのバリアント（必須） */
+    variant: ButtonVariant;
+    /** ローディング状態 */
+    isLoading?: boolean;
+    /** 背景色 */
+    backgroundColor?: string;
 }
-declare function Button({ label, variant, onClick }: ButtonProps): react.JSX.Element;
+declare const Button: ({ children, variant, size, className, isLoading, disabled, backgroundColor, style, ...props }: ButtonProps) => react.JSX.Element;
 
 interface WebHeaderProps {
     siteName: string;
