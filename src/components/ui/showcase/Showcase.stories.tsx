@@ -6,7 +6,7 @@ import { Button } from '../button/Button'
 import { Check } from '../check/Check'
 import { Radio } from '../radio/Radio'
 import { Title } from '../title/Title'
-import { Input, InputHeader, InputLabel, InputHint, InputField } from '../input/Input'
+import { Input, InputHeader, InputLabel, InputHint, InputField, InputRow } from '../input/Input'
 import {
   Textarea,
   TextareaHeader,
@@ -428,9 +428,12 @@ export const AllComponents: StoryObj = {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                       <Input>
                         <InputHeader>
-                          <InputLabel>メールアドレス</InputLabel>
+                          <InputLabel>お名前</InputLabel>
                         </InputHeader>
-                        <InputField placeholder="example@copland.com" />
+                        <InputRow>
+                          <InputField placeholder="姓 (例: 山田)" />
+                          <InputField placeholder="名 (例: 太郎)" />
+                        </InputRow>
                       </Input>
 
                       <Input>

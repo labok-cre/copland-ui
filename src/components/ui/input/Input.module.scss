@@ -87,4 +87,17 @@
       }
     }
   }
+
+  // 複数インプットの横並び（姓名入力など）
+  .row {
+    display: flex;
+    gap: var(--spacing-8);
+    width: 100%;
+
+    > * {
+      flex: 1;
+      min-width: 0;
+    }
+  }
 }
+

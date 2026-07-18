@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { useState } from 'react'
-import { Input, InputHeader, InputLabel, InputHint, InputField } from './Input'
+import { Input, InputHeader, InputLabel, InputHint, InputField, InputRow } from './Input'
 
 const meta: Meta<typeof InputField> = {
   title: 'Components/ui/Input',
@@ -149,5 +149,47 @@ export const DisabledState: Story = {
       </InputHeader>
       <InputField id="input-disabled" disabled defaultValue="user_12345" />
     </Input>
+  ),
+}
+
+export const MultiInput: Story = {
+  name: 'example / 姓名・マルチ入力',
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <Input>
+        <InputHeader>
+          <InputLabel>お名前</InputLabel>
+        </InputHeader>
+        <InputRow>
+          <InputField placeholder="姓 (例: 山田)" />
+          <InputField placeholder="名 (例: 太郎)" />
+        </InputRow>
+      </Input>
+
+      <Input>
+        <InputHeader>
+          <InputLabel>フリガナ</InputLabel>
+        </InputHeader>
+        <InputRow>
+          <InputField placeholder="セイ (例: ヤマダ)" />
+          <InputField placeholder="メイ (例: タロウ)" />
+        </InputRow>
+      </Input>
+
+      <Input>
+        <InputHeader>
+          <InputLabel>郵便番号</InputLabel>
+        </InputHeader>
+        <InputRow style={{ maxWidth: '240px' }}>
+          <InputField placeholder="100" maxLength={3} style={{ textAlign: 'center' }} />
+          <span
+            style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--text-tertiary)' }}
+          >
+            -
+          </span>
+          <InputField placeholder="0001" maxLength={4} style={{ textAlign: 'center' }} />
+        </InputRow>
+      </Input>
+    </div>
   ),
 }

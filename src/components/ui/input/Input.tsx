@@ -76,3 +76,16 @@ export const InputField = ({ className, error = false, ...props }: InputFieldPro
     />
   )
 }
+
+// ---- InputRow -------------------------------------------------------------
+
+type InputRowProps = ComponentProps<'div'>
+
+/** 複数のInputFieldを等幅で横並びにするレイアウトコンテナ（姓名入力など） */
+export const InputRow = ({ children, className, ...props }: InputRowProps) => {
+  return (
+    <div {...props} className={clsx(styles.row, className)}>
+      {children}
+    </div>
+  )
+}
