@@ -1,0 +1,89 @@
+/* Title.module.scss */
+
+@use '@/styles/mixin' as *;
+
+// ---- サイズ mixin ----------------------------------------------------------
+
+@mixin title-size-XS {
+  font-size: var(--typo-size-12);
+  line-height: var(--typo-line-height-18);
+}
+
+@mixin title-size-S {
+  font-size: var(--typo-size-14);
+  line-height: var(--typo-line-height-20);
+}
+
+@mixin title-size-M {
+  font-size: var(--typo-size-16);
+  font-weight: bold;
+  line-height: var(--typo-line-height-24);
+}
+
+@mixin title-size-L {
+  font-size: var(--typo-size-20);
+  font-weight: bold;
+  line-height: var(--typo-line-height-28);
+}
+
+@mixin title-size-XL {
+  font-size: var(--typo-size-24);
+  font-weight: bold;
+  line-height: var(--typo-line-height-32);
+}
+
+// ---- コンポーネント --------------------------------------------------------
+
+@layer components {
+  // 共通ベーススタイル
+  %title-base {
+    color: var(--text-secondary);
+  }
+
+  .title {
+    &-XS {
+      @extend %title-base;
+      @include title-size-XS;
+    }
+
+    &-S {
+      @extend %title-base;
+      @include title-size-S;
+    }
+
+    &-M {
+      @extend %title-base;
+      @include title-size-M;
+    }
+
+    &-L {
+      @extend %title-base;
+      @include title-size-L;
+    }
+
+    &-XL {
+      @extend %title-base;
+      @include title-size-XL;
+    }
+  }
+
+  // 必須マーク
+  .required {
+    margin-left: var(--spacing-4);
+    font-size: var(--typo-size-14);
+    line-height: 1;
+    color: var(--text-alert, #e53935);
+    vertical-align: middle;
+  }
+
+  // SP用サイズ上書き
+  @include isSp {
+    .title {
+      &-sp-XS { @include title-size-XS; }
+      &-sp-S  { @include title-size-S; }
+      &-sp-M  { @include title-size-M; }
+      &-sp-L  { @include title-size-L; }
+      &-sp-XL { @include title-size-XL; }
+    }
+  }
+}

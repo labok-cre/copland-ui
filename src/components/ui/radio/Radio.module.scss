@@ -1,0 +1,90 @@
+/* Radio.module.scss */
+
+@layer components {
+  .label {
+    display: inline-flex;
+    gap: var(--spacing-8);
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover .dot {
+      background: color-mix(in srgb, var(--bg-key) 6%, transparent);
+      border-color: var(--bg-key);
+    }
+
+    &[data-disabled] {
+      cursor: not-allowed;
+      opacity: 0.44;
+
+      &:hover .dot {
+        background: var(--bg-primary);
+        border-color: var(--border-primary);
+      }
+    }
+  }
+
+  /* ラジオボタンの円形ボックス */
+  .dot {
+    position: relative;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    background: var(--bg-primary);
+    border: var(--border-1) solid var(--border-primary);
+    border-radius: 50%;
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease,
+      box-shadow 0.15s ease;
+
+    /* 内側の塗りつぶし円（チェック時に表示） */
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      content: '';
+      background-color: var(--bg-primary);
+      border-radius: 50%;
+      opacity: 0;
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform: translate(-50%, -50%) scale(0.4);
+    }
+  }
+
+  .labelText {
+    font-size: var(--typo-size-14);
+    line-height: var(--typo-line-height-20);
+    color: var(--text-secondary);
+  }
+
+  /* input は視覚的に非表示（アクセシビリティ保持） */
+  .input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  /* checked */
+  .input:checked + .dot {
+    background: var(--bg-key);
+    border-color: var(--bg-key);
+  }
+
+  .input:checked + .dot::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* focus-visible */
+  .input:focus-visible + .dot {
+    outline: 2px solid var(--bg-key);
+    outline-offset: 2px;
+  }
+}
