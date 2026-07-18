@@ -6,13 +6,7 @@ import { Button } from '../button/Button'
 import { Check } from '../check/Check'
 import { Radio } from '../radio/Radio'
 import { Title } from '../title/Title'
-import {
-  Input,
-  InputHeader,
-  InputLabel,
-  InputHint,
-  InputField,
-} from '../input/Input'
+import { Input, InputHeader, InputLabel, InputHint, InputField } from '../input/Input'
 import {
   Textarea,
   TextareaHeader,
@@ -57,7 +51,8 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'すべての提供コンポーネントを一覧して動作・デザインを確認できるショーケースです。',
+        component:
+          'すべての提供コンポーネントを一覧して動作・デザインを確認できるショーケースです。',
       },
     },
   },
@@ -93,7 +88,13 @@ export const AllComponents: StoryObj = {
 
         <div style={{ maxWidth: '1200px', margin: '40px auto 0 auto', padding: '0 20px' }}>
           {/* Page Intro */}
-          <div style={{ marginBottom: '40px', borderBottom: '1px solid #e1e6eb', paddingBottom: '20px' }}>
+          <div
+            style={{
+              marginBottom: '40px',
+              borderBottom: '1px solid #e1e6eb',
+              paddingBottom: '20px',
+            }}
+          >
             <Title size="XL" tag="h1">
               Copland UI Showcase
             </Title>
@@ -104,8 +105,21 @@ export const AllComponents: StoryObj = {
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '32px' }}>
             {/* 1. Typography & Labels */}
-            <section style={{ backgroundColor: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid #e1e6eb' }}>
-              <div style={{ marginBottom: '20px', borderBottom: '1px solid #f1f3f5', paddingBottom: '10px' }}>
+            <section
+              style={{
+                backgroundColor: '#fff',
+                padding: '24px',
+                borderRadius: '12px',
+                border: '1px solid #e1e6eb',
+              }}
+            >
+              <div
+                style={{
+                  marginBottom: '20px',
+                  borderBottom: '1px solid #f1f3f5',
+                  paddingBottom: '10px',
+                }}
+              >
                 <Title size="L" tag="h2">
                   1. Typography & Labels
                 </Title>
@@ -113,7 +127,15 @@ export const AllComponents: StoryObj = {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 <div>
-                  <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      color: '#6e7b91',
+                      marginBottom: '8px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}
+                  >
                     Title Component
                   </h4>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -128,7 +150,15 @@ export const AllComponents: StoryObj = {
                 </div>
 
                 <div>
-                  <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      color: '#6e7b91',
+                      marginBottom: '8px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}
+                  >
                     Label Component
                   </h4>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -159,8 +189,21 @@ export const AllComponents: StoryObj = {
             </section>
 
             {/* 2. Navigation */}
-            <section style={{ backgroundColor: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid #e1e6eb' }}>
-              <div style={{ marginBottom: '20px', borderBottom: '1px solid #f1f3f5', paddingBottom: '10px' }}>
+            <section
+              style={{
+                backgroundColor: '#fff',
+                padding: '24px',
+                borderRadius: '12px',
+                border: '1px solid #e1e6eb',
+              }}
+            >
+              <div
+                style={{
+                  marginBottom: '20px',
+                  borderBottom: '1px solid #f1f3f5',
+                  paddingBottom: '10px',
+                }}
+              >
                 <Title size="L" tag="h2">
                   2. Navigation
                 </Title>
@@ -168,7 +211,15 @@ export const AllComponents: StoryObj = {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 <div>
-                  <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      color: '#6e7b91',
+                      marginBottom: '12px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}
+                  >
                     Breadcrumb Component (Default icon-based separator)
                   </h4>
                   <Breadcrumb>
@@ -189,7 +240,15 @@ export const AllComponents: StoryObj = {
                 </div>
 
                 <div>
-                  <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      color: '#6e7b91',
+                      marginBottom: '12px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}
+                  >
                     Pagination Component (State Controlled)
                   </h4>
                   <Pagination>
@@ -207,7 +266,10 @@ export const AllComponents: StoryObj = {
                       3
                     </PaginationItem>
                     <PaginationEllipsis />
-                    <PaginationItem onClick={() => setCurrentPage(10)} isCurrent={currentPage === 10}>
+                    <PaginationItem
+                      onClick={() => setCurrentPage(10)}
+                      isCurrent={currentPage === 10}
+                    >
                       10
                     </PaginationItem>
                     <PaginationNext
@@ -223,8 +285,21 @@ export const AllComponents: StoryObj = {
             </section>
 
             {/* 3. Form Controls */}
-            <section style={{ backgroundColor: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid #e1e6eb' }}>
-              <div style={{ marginBottom: '20px', borderBottom: '1px solid #f1f3f5', paddingBottom: '10px' }}>
+            <section
+              style={{
+                backgroundColor: '#fff',
+                padding: '24px',
+                borderRadius: '12px',
+                border: '1px solid #e1e6eb',
+              }}
+            >
+              <div
+                style={{
+                  marginBottom: '20px',
+                  borderBottom: '1px solid #f1f3f5',
+                  paddingBottom: '10px',
+                }}
+              >
                 <Title size="L" tag="h2">
                   3. Form Controls
                 </Title>
@@ -233,10 +308,20 @@ export const AllComponents: StoryObj = {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
                 {/* Buttons */}
                 <div>
-                  <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      color: '#6e7b91',
+                      marginBottom: '12px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}
+                  >
                     Button Component
                   </h4>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+                  <div
+                    style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}
+                  >
                     <Button variant="primary" size="M">
                       Primary (M)
                     </Button>
@@ -267,7 +352,15 @@ export const AllComponents: StoryObj = {
                 {/* Check & Radio */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                   <div>
-                    <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <h4
+                      style={{
+                        fontSize: '12px',
+                        color: '#6e7b91',
+                        marginBottom: '12px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                      }}
+                    >
                       Check Component (Checkbox)
                     </h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -287,7 +380,15 @@ export const AllComponents: StoryObj = {
                   </div>
 
                   <div>
-                    <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <h4
+                      style={{
+                        fontSize: '12px',
+                        color: '#6e7b91',
+                        marginBottom: '12px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                      }}
+                    >
                       Radio Component
                     </h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -313,7 +414,15 @@ export const AllComponents: StoryObj = {
                 {/* Input & Textarea */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                   <div>
-                    <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <h4
+                      style={{
+                        fontSize: '12px',
+                        color: '#6e7b91',
+                        marginBottom: '8px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                      }}
+                    >
                       Input Component
                     </h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -335,7 +444,15 @@ export const AllComponents: StoryObj = {
                   </div>
 
                   <div>
-                    <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <h4
+                      style={{
+                        fontSize: '12px',
+                        color: '#6e7b91',
+                        marginBottom: '8px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                      }}
+                    >
                       Textarea Component (Auto-resize)
                     </h4>
                     <Textarea>
@@ -355,7 +472,15 @@ export const AllComponents: StoryObj = {
 
                 {/* Select */}
                 <div>
-                  <h4 style={{ fontSize: '12px', color: '#6e7b91', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      color: '#6e7b91',
+                      marginBottom: '8px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}
+                  >
                     Select Component
                   </h4>
                   <div style={{ maxWidth: '320px' }}>
@@ -377,8 +502,21 @@ export const AllComponents: StoryObj = {
             </section>
 
             {/* 4. Spinners */}
-            <section style={{ backgroundColor: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid #e1e6eb' }}>
-              <div style={{ marginBottom: '20px', borderBottom: '1px solid #f1f3f5', paddingBottom: '10px' }}>
+            <section
+              style={{
+                backgroundColor: '#fff',
+                padding: '24px',
+                borderRadius: '12px',
+                border: '1px solid #e1e6eb',
+              }}
+            >
+              <div
+                style={{
+                  marginBottom: '20px',
+                  borderBottom: '1px solid #f1f3f5',
+                  paddingBottom: '10px',
+                }}
+              >
                 <Title size="L" tag="h2">
                   4. Feedback & Miscellaneous
                 </Title>
@@ -386,7 +524,15 @@ export const AllComponents: StoryObj = {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                 <span style={{ fontSize: '14px', color: '#6e7b91' }}>スピナー単体:</span>
-                <span style={{ display: 'inline-flex', padding: '8px', backgroundColor: 'var(--bg-key)', borderRadius: '4px', color: '#fff' }}>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    padding: '8px',
+                    backgroundColor: 'var(--bg-key)',
+                    borderRadius: '4px',
+                    color: '#fff',
+                  }}
+                >
                   <ButtonSpinner />
                 </span>
               </div>
