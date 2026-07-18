@@ -20,16 +20,18 @@
   --bg-key: #437eff;                /* 文字白に対して AA (6.5:1) */
   --bg-key-hover: #164bb8;
   --bg-disabled: #e5eaf2;
-  --background-label-blue: #edf2ff;
-  --background-label-gray: #f1f3f5;
-  --background-label-green: #ebfbee;
-  --background-label-yellow: #fff9db;
-  --background-label-red: #fff5f5;
+  --bg-label-blue: #edf2ff;
+  --bg-label-gray: #f1f3f5;
+  --bg-label-green: #ebfbee;
+  --bg-label-yellow: #fff9db;
+  --bg-label-red: #fff5f5;
+  --bg-error: #e53935;
 
   /* Border */
   --border-primary: #e1e6eb;
   --border-secondary: #333;
   --border-key: #1a56db;
   --border-disabled: #e1e6eb;
+  --border-error: #e53935;
 }
 

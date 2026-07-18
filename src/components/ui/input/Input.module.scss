@@ -1,0 +1,90 @@
+/* Input.module.scss */
+
+@layer components {
+  // ルートコンテナ
+  .root {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    width: 100%;
+  }
+
+  // ヘッダー行（ラベル + ヒント）
+  .header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  // ラベル
+  .label {
+    font-size: var(--typo-size-14);
+    font-weight: bold;
+    color: var(--text-secondary);
+  }
+
+  // ヒント・補足テキスト
+  .hint {
+    flex-shrink: 0;
+    font-size: var(--typo-size-12);
+    color: var(--text-tertiary);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  // インプット本体
+  .field {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    font-size: var(--typo-size-14);
+    line-height: var(--typo-line-height-20);
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: var(--border-1) solid var(--border-primary);
+    border-radius: var(--radius-8);
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease,
+      box-shadow 0.15s ease;
+
+    &::placeholder {
+      color: var(--text-placeholder);
+    }
+
+    &:hover:not(:disabled) {
+      border-color: var(--border-key);
+    }
+
+    &:focus-visible {
+      border-color: var(--bg-key);
+      outline: 1px solid var(--bg-key);
+    }
+
+    &:disabled {
+      color: var(--text-disabled);
+      cursor: not-allowed;
+      background: var(--bg-disabled);
+      border-color: var(--border-disabled);
+
+      &::placeholder {
+        color: var(--text-disabled);
+      }
+    }
+
+    // エラー状態
+    &-error {
+      background: color-mix(in srgb, var(--bg-error) 5%, var(--bg-primary));
+      border-color: var(--border-error);
+
+      &:hover:not(:disabled) {
+        border-color: var(--border-error);
+      }
+
+      &:focus-visible {
+        border-color: var(--border-error);
+        outline-color: var(--border-error);
+      }
+    }
+  }
+}

@@ -23,6 +23,8 @@ type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
 interface ButtonProps extends ComponentProps<'button'> {
   /** ボタンのサイズ（必須） */
   size: ButtonSize
+  /** スマートフォン用のサイズ（任意） */
+  sizeSp?: ButtonSize
   /** ボタンのバリアント（必須） */
   variant: ButtonVariant
   /** ローディング状態 */
@@ -37,6 +39,7 @@ export const Button = ({
   children,
   variant,
   size,
+  sizeSp,
   className,
   isLoading = false,
   disabled,
@@ -53,6 +56,7 @@ export const Button = ({
         styles.button,
         styles[`button-${variant}`],
         styles[`button-${size}`],
+        sizeSp && styles[`button-sp-${sizeSp}`],
         disabled && styles[`button-${variant}-disabled`],
         isLoading && styles['button-loading'],
         className,

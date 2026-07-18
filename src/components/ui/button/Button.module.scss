@@ -1,5 +1,7 @@
 /* Button.module.scss */
 
+@use '@/styles/mixin' as *;
+
 // ============================================================
 // Size mixins
 // ============================================================
@@ -162,5 +164,23 @@
 
   &-loading {
     pointer-events: none;
+  }
+
+  // --------------------------------------------------
+  // SP size overrides
+  // --------------------------------------------------
+
+  @include isSp {
+    &-sp-S      { @include size-S; }
+    &-sp-S-flex { @include size-S-flex; }
+    &-sp-M      { @include size-M; }
+    &-sp-M-flex { @include size-M-flex; }
+    &-sp-L      { @include size-L; }
+    &-sp-L-flex { @include size-L-flex; }
+    &-sp-XL     { @include size-XL; }
+    &-sp-XL-flex { @include size-XL-flex; }
+    &-sp-small  { @include size-S; }
+    &-sp-medium { @include size-M; }
+    &-sp-large  { @include size-L; }
   }
 }
