@@ -5,7 +5,7 @@ const srcPath = path.resolve(__dirname, '../src')
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: ['@storybook/addon-onboarding', '@storybook/addon-docs'],
+  addons: ['@storybook/addon-docs'],
   framework: {
     name: '@storybook/nextjs-vite',
     options: {},
@@ -18,6 +18,9 @@ const config: StorybookConfig = {
 
     return mergeConfig(config, {
       plugins: [tsconfigPaths()],
+      build: {
+        sourcemap: false, // 本番ビルド時に重いソースマップを出力しない
+      },
       css: {
         preprocessorOptions: {
           scss: {
