@@ -39,6 +39,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '../breadcrumb/Breadcrumb'
+import { Table } from '../table/Table'
 
 // Features
 import { Header } from '../../features/header/Header'
@@ -125,7 +126,7 @@ export const AllComponents: StoryObj = {
                 </Title>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
                 <div>
                   <h4
                     style={{
@@ -504,7 +505,7 @@ export const AllComponents: StoryObj = {
               </div>
             </section>
 
-            {/* 4. Spinners */}
+            {/* 4. Data Display */}
             <section
               style={{
                 backgroundColor: '#fff',
@@ -521,7 +522,80 @@ export const AllComponents: StoryObj = {
                 }}
               >
                 <Title size="L" tag="h2">
-                  4. Feedback & Miscellaneous
+                  4. Data Display
+                </Title>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <h4
+                  style={{
+                    fontSize: '12px',
+                    color: '#6e7b91',
+                    marginBottom: '8px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  Table Component
+                </h4>
+
+                <Table>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>ID</Table.HeaderCell>
+                      <Table.HeaderCell>プロジェクト名</Table.HeaderCell>
+                      <Table.HeaderCell style={{ minWidth: '150px' }}>登録日時</Table.HeaderCell>
+                      <Table.HeaderCell>ステータス</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
+                    <Table.Row>
+                      <Table.Cell>0001</Table.Cell>
+                      <Table.Cell isLink>
+                        <Table.Link href="#">プロジェクトA (セルリンク)</Table.Link>
+                      </Table.Cell>
+                      <Table.Cell>2026-07-19 12:00:00</Table.Cell>
+                      <Table.Cell>
+                        <Label appearance="contained" color="green" shape="pill" isStatus>
+                          稼働中
+                        </Label>
+                      </Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>0002</Table.Cell>
+                      <Table.Cell isLink>
+                        <Table.Link href="#">プロジェクトB (セルリンク)</Table.Link>
+                      </Table.Cell>
+                      <Table.Cell>2026-07-18 15:30:00</Table.Cell>
+                      <Table.Cell>
+                        <Label appearance="contained" color="yellow" shape="pill" isStatus>
+                          一時停止
+                        </Label>
+                      </Table.Cell>
+                    </Table.Row>
+                  </Table.Body>
+                </Table>
+              </div>
+            </section>
+
+            {/* 5. Feedback & Miscellaneous */}
+            <section
+              style={{
+                backgroundColor: '#fff',
+                padding: '24px',
+                borderRadius: '12px',
+                border: '1px solid #e1e6eb',
+              }}
+            >
+              <div
+                style={{
+                  marginBottom: '20px',
+                  borderBottom: '1px solid #f1f3f5',
+                  paddingBottom: '10px',
+                }}
+              >
+                <Title size="L" tag="h2">
+                  5. Feedback & Miscellaneous
                 </Title>
               </div>
 
