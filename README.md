@@ -53,7 +53,7 @@ https://labok-cre.github.io/copland-ui/
 
 ## Figma
 
-copland-uiコンポーネントのFigmaデータを公開中（制作中）
+copland-uiコンポーネントのFigmaデータを公開中（制作中 進捗：5%）
 
 https://www.figma.com/community/file/1660620113413898263/copland-ui
 
