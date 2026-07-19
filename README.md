@@ -3,7 +3,7 @@
 **copland-ui** は、React および Next.js で利用可能なモダンで再利用性の高い静的UIコンポーネントライブラリです。
 本リポジトリは、Storybook によるカタログ管理に加え、npm パッケージとして公開するためのビルド設定を備えています。
 
-## 📦 インストール
+## インストール
 
 ```bash
 npm install copland
@@ -13,7 +13,7 @@ yarn add copland
 pnpm add copland
 ```
 
-## 🚀 使い方
+## 使い方
 
 ### 1. スタイルのインポート
 
@@ -43,15 +43,23 @@ export default function App() {
 
 ---
 
-## 🌐 Storybook
+## Storybook
 
 コンポーネントカタログを GitHub Pages で公開しています。
 
-👉 https://labok-cre.github.io/copland-ui/
+https://labok-cre.github.io/copland-ui/
 
 ---
 
-## ✨ 提供コンポーネント
+## Storybook
+
+copland-uiコンポーネントのFigmaデータを公開中（制作中）
+
+https://www.figma.com/community/file/1660620113413898263/copland-ui
+
+---
+
+## 提供コンポーネント
 
 * **`Button`**: プライマリ・セカンダリ表示をサポートする汎用ボタン部品。
 * **`Check`**: `indeterminate`（不確定）状態もサポートするチェックボックス。
@@ -67,7 +75,7 @@ export default function App() {
 
 ---
 
-## 🛠️ 設計アプローチと技術スタック
+## 設計アプローチと技術スタック
 
 ### ヘッドレスUIによるロジックとアクセシビリティの分離
 `Select` などの複雑なインタラクションを伴うコンポーネントには、ヘッドレスUIライブラリである **Radix UI (`@radix-ui/react-select`)** を採用しています。
@@ -100,7 +108,7 @@ src/
 
 ---
 
-## 🏗️ 開発者向けガイド
+## 開発者向けガイド
 
 ### セットアップ
 
