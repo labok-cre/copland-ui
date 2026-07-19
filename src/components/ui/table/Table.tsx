@@ -23,8 +23,6 @@ interface TableHeaderCellProps extends ComponentProps<'th'> {
 interface TableCellProps extends ComponentProps<'td'> {
   /** セルが空状態かどうか */
   isEmpty?: boolean
-  /** セル全体がリンクかどうか。true の場合はセルのパディングがリセットされ、TableLinkが全体に広がります。 */
-  isLink?: boolean
   /** 列を左端に固定するかどうか */
   isSticky?: boolean
   /** 左端からの固定位置 (例: 0, 120, '100px' など。デフォルトは 0) */
@@ -106,7 +104,6 @@ export const TableCellContent = ({ children, className, ...props }: TableCellCon
 export const TableCell = ({
   children,
   isEmpty = false,
-  isLink = false,
   isSticky = false,
   stickyLeft = 0,
   className,
@@ -118,7 +115,6 @@ export const TableCell = ({
       className={clsx(
         styles.cell,
         isEmpty && styles['cell-empty'],
-        isLink && styles['cell-hasLink'],
         isSticky && styles['cell-sticky'],
         className,
       )}

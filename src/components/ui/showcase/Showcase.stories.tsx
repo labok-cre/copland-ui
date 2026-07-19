@@ -552,8 +552,8 @@ export const AllComponents: StoryObj = {
                   <Table.Body>
                     <Table.Row>
                       <Table.Cell>0001</Table.Cell>
-                      <Table.Cell isLink>
-                        <Table.Link href="#">プロジェクトA (セルリンク)</Table.Link>
+                      <Table.Cell>
+                        <Table.Link href="#">プロジェクトA</Table.Link>
                       </Table.Cell>
                       <Table.Cell>2026-07-19 12:00:00</Table.Cell>
                       <Table.Cell>
@@ -564,8 +564,8 @@ export const AllComponents: StoryObj = {
                     </Table.Row>
                     <Table.Row>
                       <Table.Cell>0002</Table.Cell>
-                      <Table.Cell isLink>
-                        <Table.Link href="#">プロジェクトB (セルリンク)</Table.Link>
+                      <Table.Cell>
+                        <Table.Link href="#">プロジェクトB</Table.Link>
                       </Table.Cell>
                       <Table.Cell>2026-07-18 15:30:00</Table.Cell>
                       <Table.Cell>

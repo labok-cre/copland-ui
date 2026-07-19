@@ -108,7 +108,7 @@ export const EmptyState: Story = {
 }
 
 export const ClickableCell: Story = {
-  name: 'セル全体がリンク',
+  name: 'テキストリンク',
   render: () => (
     <Table>
       <Table.Header>
@@ -119,13 +119,13 @@ export const ClickableCell: Story = {
       </Table.Header>
       <Table.Body>
         <Table.Row>
-          <Table.Cell isLink>
+          <Table.Cell>
             <Table.Link href="#project1">プロジェクトA (ここをクリック)</Table.Link>
           </Table.Cell>
           <Table.Cell>GitHub</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell isLink>
+          <Table.Cell>
             <Table.Link href="#project2">プロジェクトB (ここをクリック)</Table.Link>
           </Table.Cell>
           <Table.Cell>GitLab</Table.Cell>
