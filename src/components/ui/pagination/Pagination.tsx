@@ -14,11 +14,6 @@ type PaginationEllipsisProps = ComponentProps<'span'>
 type PaginationPrevNextProps = ComponentProps<'button'>
 
 // ---- Pagination（ルートコンテナ） -------------------------------------------
-
-/**
- * Pagination のルートコンテナ。
- * 子に PaginationPrev, PaginationItem, PaginationEllipsis, PaginationNext などを配置する。
- */
 export const Pagination = ({ children, className, ...props }: PaginationRootProps) => {
   return (
     <nav
