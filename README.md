@@ -43,7 +43,7 @@ export default function App() {
 
 ---
 
-## ●Storybook
+## Storybook
 
 コンポーネントカタログを GitHub Pages で公開しています。
 
@@ -51,7 +51,7 @@ https://labok-cre.github.io/copland-ui/
 
 ---
 
-## ●Storybook
+## Figma
 
 copland-uiコンポーネントのFigmaデータを公開中（制作中）
 
