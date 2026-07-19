@@ -1,0 +1,114 @@
+/* Message.module.scss */
+
+@use '@/styles/mixin' as *;
+
+.root {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: flex-start;
+  width: 100%;
+  padding: var(--spacing-16);
+  font-size: var(--typo-size-14);
+  line-height: var(--typo-line-height-20);
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+
+  // ---- Notice ----------------------------------------------------
+  &-notice {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    border-color: var(--border-primary);
+
+    .iconWrapper {
+      color: var(--bg-key);
+    }
+  }
+
+  // ---- Info ------------------------------------------------------
+  &-info {
+    color: var(--text-primary);
+    background-color: var(--bg-label-blue);
+    border-color: var(--border-primary);
+
+    .iconWrapper {
+      color: var(--text-label-blue);
+    }
+  }
+
+  // ---- Warning ---------------------------------------------------
+  &-warning {
+    color: var(--text-primary);
+    background-color: var(--bg-label-yellow);
+    border-color: var(--border-primary);
+
+    .iconWrapper {
+      color: var(--text-label-yellow);
+    }
+  }
+
+  // ---- Error -----------------------------------------------------
+  &-error {
+    color: var(--text-primary);
+    background-color: var(--bg-label-red);
+    border-color: var(--border-error);
+
+    .iconWrapper {
+      color: var(--text-label-red);
+    }
+  }
+}
+
+.iconWrapper {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--spacing-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--typo-size-14);
+  font-weight: bold;
+  line-height: var(--typo-line-height-20);
+  color: var(--text-primary);
+}
+
+.text {
+  margin: 0;
+  font-size: var(--typo-size-14);
+  line-height: var(--typo-line-height-20);
+  color: var(--text-tertiary);
+
+  &-bold {
+    font-weight: bold;
+    color: var(--text-primary);
+  }
+}
+
+// ---- SP Responsive Overrides ------------------------------------
+@include isSp {
+  .root {
+    padding: var(--spacing-12);
+    font-size: var(--typo-size-12);
+    line-height: var(--typo-line-height-18);
+  }
+
+  .title {
+    font-size: var(--typo-size-12);
+    line-height: var(--typo-line-height-18);
+  }
+
+  .text {
+    font-size: var(--typo-size-12);
+    line-height: var(--typo-line-height-18);
+  }
+}

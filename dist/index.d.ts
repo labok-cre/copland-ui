@@ -86,4 +86,23 @@ declare const Table: (({ children, className, isScrollable, ...props }: TablePro
     Link: ({ children, className, ...props }: TableLinkProps) => react.JSX.Element;
 };
 
-export { Button, Footer, Header, Table };
+type MessageVariant = 'notice' | 'info' | 'warning' | 'error';
+interface MessageProps extends ComponentProps<'div'> {
+    /** メッセージの種類（必須） */
+    variant: MessageVariant;
+}
+type MessageIconProps = ComponentProps<'span'>;
+type MessageContentProps = ComponentProps<'div'>;
+type MessageTitleProps = ComponentProps<'h2'>;
+interface MessageTextProps extends ComponentProps<'p'> {
+    /** テキストを太字にするかどうか */
+    isBold?: boolean;
+}
+declare const Message: (({ children, variant, className, ...props }: MessageProps) => react.JSX.Element) & {
+    Icon: ({ children, className, ...props }: MessageIconProps) => react.JSX.Element;
+    Content: ({ children, className, ...props }: MessageContentProps) => react.JSX.Element;
+    Title: ({ children, className, ...props }: MessageTitleProps) => react.JSX.Element;
+    Text: ({ isBold, children, className, ...props }: MessageTextProps) => react.JSX.Element;
+};
+
+export { Button, Footer, Header, Message, Table };

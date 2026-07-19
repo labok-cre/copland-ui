@@ -40,6 +40,7 @@ import {
   BreadcrumbSeparator,
 } from '../breadcrumb/Breadcrumb'
 import { Table } from '../table/Table'
+import { Message } from '../message/Message'
 
 // Features
 import { Header } from '../../features/header/Header'
@@ -578,7 +579,7 @@ export const AllComponents: StoryObj = {
               </div>
             </section>
 
-            {/* 5. Feedback & Miscellaneous */}
+            {/* 5. Feedback, Spinners & Messages */}
             <section
               style={{
                 backgroundColor: '#fff',
@@ -595,23 +596,58 @@ export const AllComponents: StoryObj = {
                 }}
               >
                 <Title size="L" tag="h2">
-                  5. Feedback & Miscellaneous
+                  5. Feedback, Spinners & Messages
                 </Title>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <span style={{ fontSize: '14px', color: '#6e7b91' }}>スピナー単体:</span>
-                <span
-                  style={{
-                    display: 'inline-flex',
-                    padding: '8px',
-                    backgroundColor: 'var(--bg-key)',
-                    borderRadius: '4px',
-                    color: '#fff',
-                  }}
-                >
-                  <ButtonSpinner />
-                </span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <div>
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      color: '#6e7b91',
+                      marginBottom: '12px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}
+                  >
+                    Message Component
+                  </h4>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <Message variant="info">
+                      <Message.Icon />
+                      <Message.Content>
+                        <Message.Title>新着メッセージがあります</Message.Title>
+                        <Message.Text>
+                          お知らせの本文がここに表示されます。Contextによって最適なアイコンが自動選択されます。
+                        </Message.Text>
+                      </Message.Content>
+                    </Message>
+
+                    <Message variant="error">
+                      <Message.Icon />
+                      <Message.Content>
+                        <Message.Title>エラーが発生しました</Message.Title>
+                        <Message.Text>フォームの入力内容をご確認ください。</Message.Text>
+                      </Message.Content>
+                    </Message>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                  <span style={{ fontSize: '14px', color: '#6e7b91' }}>スピナー単体:</span>
+                  <span
+                    style={{
+                      display: 'inline-flex',
+                      padding: '8px',
+                      backgroundColor: 'var(--bg-key)',
+                      borderRadius: '4px',
+                      color: '#fff',
+                    }}
+                  >
+                    <ButtonSpinner />
+                  </span>
+                </div>
               </div>
             </section>
           </div>
