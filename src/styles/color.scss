@@ -11,7 +11,6 @@
   --text-label-green: #136327;      /* AAA: vs --background-label-green (7.8:1) */
   --text-label-yellow: #855200;     /* AA: vs --background-label-yellow (5.8:1) */
   --text-label-red: #b81414;        /* AAA: vs --background-label-red (8.6:1) */
-  --border-caution: #e53935;
 
   /* Background */
   --bg-primary: #fff;
@@ -25,7 +24,7 @@
   --bg-label-green: #ebfbee;
   --bg-label-yellow: #fff9db;
   --bg-label-red: #fff5f5;
-  --bg-error: #e53935;
+  --bg-error: #fef5f5;
 
   /* Border */
   --border-primary: #e1e6eb;
@@ -33,7 +32,9 @@
   --border-key: #1a56db;
   --border-disabled: #e1e6eb;
   --border-error: #e53935;
+  --border-gray: #474f59;
 
   /* Border */
   --icon-primary: #6e7b91;
+  --icon-secondary: #fff;
 }

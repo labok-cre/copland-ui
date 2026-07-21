@@ -76,7 +76,7 @@
 
     // エラー状態
     &-error {
-      background: color-mix(in srgb, var(--bg-error) 5%, var(--bg-primary));
+      background: color-mix(in srgb, var(--bg-error), var(--bg-primary));
       border-color: var(--border-error);
 
       &:hover:not(:disabled) {
