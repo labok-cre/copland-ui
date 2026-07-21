@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import '../src/styles/globals.scss'
 
 const preview: Preview = {
@@ -13,6 +14,10 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+    },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'responsive',
     },
   },
 }

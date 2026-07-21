@@ -1,10 +1,9 @@
 :root {
   /* Text */
-  --text-primary: #333;          /* AAA: vs #ffffff (15.6:1) */
-  --text-secondary: #fff;        /* AAA: vs #ffffff (6.2:1 -> AAクリア、通常文字サイズ推奨) */
+  --text-primary: #333;             /* AAA: vs #ffffff (15.6:1) */
+  --text-secondary: #fff;           /* AAA: vs #ffffff (6.2:1 -> AAクリア、通常文字サイズ推奨) */
   --text-tertiary: #6e7b91;         /* AA: vs #ffffff (4.7:1) */
   --text-placeholder: #6c7a89;      /* AA: vs #ffffff (4.9:1) */
-  --text-pressed-primary: #0f1115;  /* AAA: vs #ffffff (18.5:1) */
   --text-key: #1a56db;              /* AA: vs #ffffff (6.5:1) */
   --text-disabled: #9eb0c2;         /* 非表示・非アクティブ用 (3.0:1) */
   --text-label-blue: #437eff;       /* AAA: vs --background-label-blue (9.2:1) */
@@ -12,6 +11,7 @@
   --text-label-green: #136327;      /* AAA: vs --background-label-green (7.8:1) */
   --text-label-yellow: #855200;     /* AA: vs --background-label-yellow (5.8:1) */
   --text-label-red: #b81414;        /* AAA: vs --background-label-red (8.6:1) */
+  --border-caution: #e53935;
 
   /* Background */
   --bg-primary: #fff;
@@ -33,4 +33,7 @@
   --border-key: #1a56db;
   --border-disabled: #e1e6eb;
   --border-error: #e53935;
+
+  /* Border */
+  --icon-primary: #6e7b91;
 }
