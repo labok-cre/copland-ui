@@ -26,16 +26,24 @@ import 'copland/dist/index.css';
 ### 2. コンポーネントの使用例
 
 ```tsx
-import { Button, WebHeader, WebFooter } from 'copland';
+import { Button, Header, Footer, Message, Table } from 'copland';
 
 export default function App() {
   return (
     <div>
-      <WebHeader siteName="My Site" />
+      <Header>
+        <Header.Logo src="/logo.svg" alt="My Site" />
+        <Header.Nav>
+          <Header.NavItem href="/">ホーム</Header.NavItem>
+          <Header.NavItem href="/about">About</Header.NavItem>
+        </Header.Nav>
+      </Header>
       <main style={{ padding: '2rem' }}>
-        <Button label="クリック" variant="primary" onClick={() => alert('Hello!')} />
+        <Button size="M" variant="primary" onClick={() => alert('Hello!')}>
+          クリック
+        </Button>
       </main>
-      <WebFooter siteName="My Site" />
+      <Footer />
     </div>
   );
 }
@@ -61,23 +69,42 @@ https://www.figma.com/community/file/1660620113413898263/copland-ui
 
 ## 提供コンポーネント
 
-* **`Button`**: プライマリ・セカンダリ表示をサポートする汎用ボタン部品。
-* **`Check`**: `indeterminate`（不確定）状態もサポートするチェックボックス。
-* **`Radio`**: 統一したスタイルのラジオボタン。
-* **`Title`**: `h1`〜`h4` の切り替えやスマホサイズ指定に対応したタイトル要素。
-* **`Input`**: プレースホルダーやエラー状態に対応した1行テキストインプット。
-* **`Textarea`**: 入力されたテキストの量に応じて自動で高さが伸縮する複数行インプット。
-* **`Select`**: アクセシブルでアニメーションに対応したドロップダウン選択肢。
-* **`Pagination`**: 省略表示や前後の切り替えに対応したページナビゲーション。
-* **`Breadcrumb`**: Next.js などのカスタムリンクとも高度に連携できるパンくずリスト。
-* **`WebHeader`**: サイト名と基本的なナビゲーションを提供するヘッダー。
-* **`WebFooter`**: コピーライトを表示する標準フッター。
+### UI コンポーネント（`components/ui/`）
+
+| コンポーネント | 概要 |
+|---|---|
+| **`Button`** | `primary` / `secondary` / `tertiary` の3バリアント、複数サイズ（S / M / L / XL など）、`isLoading` 状態をサポートする汎用ボタン。 |
+| **`Check`** | `indeterminate`（不確定）状態もサポートするチェックボックス。 |
+| **`Radio`** | 統一したスタイルのラジオボタン。 |
+| **`Title`** | `h1`〜`h4` の切り替えやスマホサイズ指定に対応したタイトル要素。 |
+| **`Input`** | プレースホルダーやエラー状態に対応した1行テキストインプット。 |
+| **`Textarea`** | 入力量に応じて高さが自動伸縮する複数行インプット。 |
+| **`Select`** | アクセシブルでアニメーションに対応したドロップダウン選択肢（Radix UI 採用）。 |
+| **`Label`** | バッジ形式でカテゴリやステータスを表現。`appearance`（contained / outlined）、`color`（6色）、`shape`（square / pill）、ステータスドット表示に対応。 |
+| **`Message`** | `notice` / `info` / `warning` / `error` の4バリアントに対応した通知・メッセージUI。Compound Component として `Message.Icon`、`Message.Title`、`Message.Text` などを提供。 |
+| **`Table`** | 横スクロール対応、列の左端固定（sticky）対応のテーブル。Compound Component として `Table.Header`、`Table.Body`、`Table.Row`、`Table.HeaderCell`、`Table.Cell`、`Table.CellContent`、`Table.Link` を提供。 |
+| **`Frame`** | コンテンツ領域を囲む汎用レイアウト用ラッパー。 |
+| **`Pagination`** | 省略表示や前後の切り替えに対応したページナビゲーション。 |
+| **`Breadcrumb`** | Next.js などのカスタムリンクとも高度に連携できるパンくずリスト。 |
+
+### フィーチャーコンポーネント（`components/features/`）
+
+| コンポーネント | 概要 |
+|---|---|
+| **`Header`** | ロゴ・ナビゲーションを備えるサイトヘッダー。`Header.Logo`、`Header.Nav`、`Header.NavItem` を Compound Component として提供。 |
+| **`Footer`** | コピーライトを表示する標準フッター。 |
 
 ---
 
 ## 設計アプローチと技術スタック
 
+### Compound Component パターン
+
+`Header`・`Table`・`Message` などの複合的なUIは、Compound Component パターンを採用しています。
+`Table.Header`、`Table.Body`、`Message.Icon`、`Header.Nav` のように、親コンポーネントの名前空間下にサブコンポーネントを配置することで、直感的で柔軟な組み合わせが可能です。
+
 ### ヘッドレスUIによるロジックとアクセシビリティの分離
+
 `Select` などの複雑なインタラクションを伴うコンポーネントには、ヘッドレスUIライブラリである **Radix UI (`@radix-ui/react-select`)** を採用しています。
 
 - **ロジックとアクセシビリティ (Radix UI)**: WAI-ARIA 準拠のマークアップ、キーボードナビゲーション（矢印キー、Enter、Escなどでの操作）、フォーカス制御などの複雑なロジックを Radix UI が担保します。
@@ -86,10 +113,11 @@ https://www.figma.com/community/file/1660620113413898263/copland-ui
 これにより、アクセシビリティや操作性を妥協することなく、完全にカスタムされた UI コンポーネントを安全かつシンプルに実装しています。
 
 ### アイコンに関して（lucide-react）
-SVGアイコンの管理とデザインの一貫性を高めるため、標準アイコンライブラリとして **`lucide-react`** を採用しています。
-- 自前でインラインの SVG を実装する代わりとして、`Pagination`（矢印）や `Breadcrumb`（区切り）などで統一されたサイズ（`size={12}` / `size={16}` など）の Lucide アイコンを利用しています。
-- 各コンポーネントでスタイルシート（SCSS）のテキストカラー `currentColor` に追従するよう設計されているため、カラーパレットの変更に連動してアイコンカラーも自動的に変化します。
 
+SVGアイコンの管理とデザインの一貫性を高めるため、標準アイコンライブラリとして **`lucide-react`** を採用しています。
+
+- `Pagination`（矢印）や `Breadcrumb`（区切り）、`Message`（通知アイコン）などで統一されたサイズの Lucide アイコンを利用しています。
+- 各コンポーネントでスタイルシート（SCSS）のテキストカラー `currentColor` に追従するよう設計されているため、カラーパレットの変更に連動してアイコンカラーも自動的に変化します。
 
 ---
 
@@ -99,8 +127,8 @@ SVGアイコンの管理とデザインの一貫性を高めるため、標準�
 src/
 ├── app/          # 開発・確認用の Next.js App Router
 ├── components/
-│   ├── ui/       # 汎用UIコンポーネント (例: Button)
-│   ├── features/ # 機能単位のコンポーネント (例: WebHeader, WebFooter)
+│   ├── ui/       # 汎用UIコンポーネント (Button, Table, Message, Label, Frame など)
+│   ├── features/ # 機能単位のコンポーネント (Header, Footer)
 │   └── sections/ # ページ単位のセクションコンポーネント
 ├── index.ts      # ライブラリの公開エントリーポイント
 ├── styles/       # グローバルスタイル・共通SCSS変数
