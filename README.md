@@ -84,8 +84,8 @@ https://www.figma.com/community/file/1660620113413898263/copland-ui
 | **`Message`** | `notice` / `info` / `warning` / `error` の4バリアントに対応した通知・メッセージUI。Compound Component として `Message.Icon`、`Message.Title`、`Message.Text` などを提供。 |
 | **`Table`** | 横スクロール対応、列の左端固定（sticky）対応のテーブル。Compound Component として `Table.Header`、`Table.Body`、`Table.Row`、`Table.HeaderCell`、`Table.Cell`、`Table.CellContent`、`Table.Link` を提供。 |
 | **`Frame`** | コンテンツ領域を囲む汎用レイアウト用ラッパー。 |
-| **`Pagination`** | 省略表示や前後の切り替えに対応したページナビゲーション。 |
-| **`Breadcrumb`** | Next.js などのカスタムリンクとも高度に連携できるパンくずリスト。 |
+| **`Pagination`** | 省略表示や前後の切り替えに対応したページナビゲーション。Compound Component として `Pagination.Prev`、`Pagination.Item`、`Pagination.Ellipsis`、`Pagination.Next` を提供。 |
+| **`Breadcrumb`** | Next.js などのカスタムリンクとも高度に連携できるパンくずリスト。Compound Component として `Breadcrumb.List`、`Breadcrumb.Item`、`Breadcrumb.Link`、`Breadcrumb.Page`、`Breadcrumb.Separator` を提供。 |
 
 ### フィーチャーコンポーネント（`components/features/`）
 
@@ -100,8 +100,10 @@ https://www.figma.com/community/file/1660620113413898263/copland-ui
 
 ### Compound Component パターン
 
-`Header`・`Table`・`Message` などの複合的なUIは、Compound Component パターンを採用しています。
-`Table.Header`、`Table.Body`、`Message.Icon`、`Header.Nav` のように、親コンポーネントの名前空間下にサブコンポーネントを配置することで、直感的で柔軟な組み合わせが可能です。
+複数のサブコンポーネントで構成されるUIはすべて Compound Component パターンを採用しています。
+`Table.Header`、`Message.Icon`、`Input.Field`、`Breadcrumb.List` のように、親コンポーネントの名前空間下にサブコンポーネントを配置することで、直感的で柔軟な組み合わせが可能です。
+
+対象コンポーネント: `Breadcrumb` / `Input` / `Message` / `Pagination` / `Select` / `Table` / `Textarea` / `Header` / `Footer`
 
 ### ヘッドレスUIによるロジックとアクセシビリティの分離
 

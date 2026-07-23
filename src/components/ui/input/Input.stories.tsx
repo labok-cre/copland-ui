@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { useState } from 'react'
-import { Input, InputHeader, InputLabel, InputHint, InputField, InputRow } from './Input'
+import { Input } from './Input'
 
-const meta: Meta<typeof InputField> = {
+const meta: Meta<typeof Input.Field> = {
   title: 'Components/ui/Input',
-  component: InputField,
+  component: Input.Field,
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -14,10 +14,10 @@ const meta: Meta<typeof InputField> = {
 
 ## 構成要素
 - **\`Input\`** — ルートコンテナ（\`display: flex; flex-direction: column\`）
-- **\`InputHeader\`** — ラベルとヒントを横並びにするヘッダー行
-- **\`InputLabel\`** — ラベルテキスト（\`htmlFor\` で input と紐づける）
-- **\`InputHint\`** — 補足テキスト（文字数カウンターなど）
-- **\`InputField\`** — テキスト入力フィールド本体
+- **\`Input.Header\`** — ラベルとヒントを横並びにするヘッダー行
+- **\`Input.Label\`** — ラベルテキスト（\`htmlFor\` で input と紐づける）
+- **\`Input.Hint\`** — 補足テキスト（文字数カウンターなど）
+- **\`Input.Field\`** — テキスト入力フィールド本体
 
 ## 特徴
 - **エラー状態** — \`error\` prop でエラースタイルを適用できます
@@ -49,7 +49,7 @@ const meta: Meta<typeof InputField> = {
 }
 
 export default meta
-type Story = StoryObj<typeof InputField>
+type Story = StoryObj<typeof Input.Field>
 
 // ---- Default ---------------------------------------------------------------
 
@@ -57,10 +57,10 @@ export const Default: Story = {
   name: 'default',
   render: (args) => (
     <Input>
-      <InputHeader>
-        <InputLabel htmlFor="input-default">名前</InputLabel>
-      </InputHeader>
-      <InputField {...args} id="input-default" placeholder="テキストを入力してください" />
+      <Input.Header>
+        <Input.Label htmlFor="input-default">名前</Input.Label>
+      </Input.Header>
+      <Input.Field {...args} id="input-default" placeholder="テキストを入力してください" />
     </Input>
   ),
 }
@@ -72,22 +72,22 @@ export const Types: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <Input>
-        <InputHeader>
-          <InputLabel htmlFor="input-text">テキスト</InputLabel>
-        </InputHeader>
-        <InputField id="input-text" type="text" placeholder="山田太郎" />
+        <Input.Header>
+          <Input.Label htmlFor="input-text">テキスト</Input.Label>
+        </Input.Header>
+        <Input.Field id="input-text" type="text" placeholder="山田太郎" />
       </Input>
       <Input>
-        <InputHeader>
-          <InputLabel htmlFor="input-email">メールアドレス</InputLabel>
-        </InputHeader>
-        <InputField id="input-email" type="email" placeholder="example@email.com" />
+        <Input.Header>
+          <Input.Label htmlFor="input-email">メールアドレス</Input.Label>
+        </Input.Header>
+        <Input.Field id="input-email" type="email" placeholder="example@email.com" />
       </Input>
       <Input>
-        <InputHeader>
-          <InputLabel htmlFor="input-password">パスワード</InputLabel>
-        </InputHeader>
-        <InputField id="input-password" type="password" placeholder="8文字以上" />
+        <Input.Header>
+          <Input.Label htmlFor="input-password">パスワード</Input.Label>
+        </Input.Header>
+        <Input.Field id="input-password" type="password" placeholder="8文字以上" />
       </Input>
     </div>
   ),
@@ -102,13 +102,13 @@ export const WithHint: Story = {
     const [value, setValue] = useState('')
     return (
       <Input>
-        <InputHeader>
-          <InputLabel htmlFor="input-hint">表示名</InputLabel>
-          <InputHint>
+        <Input.Header>
+          <Input.Label htmlFor="input-hint">表示名</Input.Label>
+          <Input.Hint>
             {value.length} / {maxLength}
-          </InputHint>
-        </InputHeader>
-        <InputField
+          </Input.Hint>
+        </Input.Header>
+        <Input.Field
           id="input-hint"
           maxLength={maxLength}
           placeholder="50字以内で入力してください"
@@ -126,10 +126,10 @@ export const ErrorState: Story = {
   name: 'state / error',
   render: () => (
     <Input>
-      <InputHeader>
-        <InputLabel htmlFor="input-error">メールアドレス</InputLabel>
-      </InputHeader>
-      <InputField
+      <Input.Header>
+        <Input.Label htmlFor="input-error">メールアドレス</Input.Label>
+      </Input.Header>
+      <Input.Field
         id="input-error"
         type="email"
         error
@@ -144,10 +144,10 @@ export const DisabledState: Story = {
   name: 'state / disabled',
   render: () => (
     <Input>
-      <InputHeader>
-        <InputLabel htmlFor="input-disabled">ユーザーID</InputLabel>
-      </InputHeader>
-      <InputField id="input-disabled" disabled defaultValue="user_12345" />
+      <Input.Header>
+        <Input.Label htmlFor="input-disabled">ユーザーID</Input.Label>
+      </Input.Header>
+      <Input.Field id="input-disabled" disabled defaultValue="user_12345" />
     </Input>
   ),
 }
@@ -157,38 +157,38 @@ export const MultiInput: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       <Input>
-        <InputHeader>
-          <InputLabel>お名前</InputLabel>
-        </InputHeader>
-        <InputRow>
-          <InputField placeholder="姓 (例: 山田)" />
-          <InputField placeholder="名 (例: 太郎)" />
-        </InputRow>
+        <Input.Header>
+          <Input.Label>お名前</Input.Label>
+        </Input.Header>
+        <Input.Row>
+          <Input.Field placeholder="姓 (例: 山田)" />
+          <Input.Field placeholder="名 (例: 太郎)" />
+        </Input.Row>
       </Input>
 
       <Input>
-        <InputHeader>
-          <InputLabel>フリガナ</InputLabel>
-        </InputHeader>
-        <InputRow>
-          <InputField placeholder="セイ (例: ヤマダ)" />
-          <InputField placeholder="メイ (例: タロウ)" />
-        </InputRow>
+        <Input.Header>
+          <Input.Label>フリガナ</Input.Label>
+        </Input.Header>
+        <Input.Row>
+          <Input.Field placeholder="セイ (例: ヤマダ)" />
+          <Input.Field placeholder="メイ (例: タロウ)" />
+        </Input.Row>
       </Input>
 
       <Input>
-        <InputHeader>
-          <InputLabel>郵便番号</InputLabel>
-        </InputHeader>
-        <InputRow style={{ maxWidth: '240px' }}>
-          <InputField placeholder="100" maxLength={3} style={{ textAlign: 'center' }} />
+        <Input.Header>
+          <Input.Label>郵便番号</Input.Label>
+        </Input.Header>
+        <Input.Row style={{ maxWidth: '240px' }}>
+          <Input.Field placeholder="100" maxLength={3} style={{ textAlign: 'center' }} />
           <span
             style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--text-tertiary)' }}
           >
             -
           </span>
-          <InputField placeholder="0001" maxLength={4} style={{ textAlign: 'center' }} />
-        </InputRow>
+          <Input.Field placeholder="0001" maxLength={4} style={{ textAlign: 'center' }} />
+        </Input.Row>
       </Input>
     </div>
   ),

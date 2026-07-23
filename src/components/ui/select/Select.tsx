@@ -14,13 +14,13 @@ type SelectTriggerProps = ComponentProps<typeof RadixSelect.Trigger>
 type SelectContentProps = ComponentProps<typeof RadixSelect.Content>
 type SelectItemProps = ComponentProps<typeof RadixSelect.Item>
 
-// ---- Select（ルートコンテナ） ----------------------------------------------
+// ---- SelectRoot（ルートコンテナ） ----------------------------------------------
 
 /**
  * Select のルートコンテナ。
  * 子に SelectLabel・SelectTrigger・SelectContent を配置して使用する。
  */
-export const Select = ({ children, className, ...props }: SelectRootProps) => {
+export const SelectRoot = ({ children, className, ...props }: SelectRootProps) => {
   return (
     <div className={clsx(styles.root, className)}>
       <RadixSelect.Root {...props}>{children}</RadixSelect.Root>
@@ -90,3 +90,15 @@ export const SelectItem = ({ children, className, ...props }: SelectItemProps) =
     </RadixSelect.Item>
   )
 }
+
+// ---- Compound Component マッピング -----------------------------------------
+
+export const Select = Object.assign(SelectRoot, {
+  Label: SelectLabel,
+  Value: SelectValue,
+  Trigger: SelectTrigger,
+  Content: SelectContent,
+  Item: SelectItem,
+})
+
+export default Select

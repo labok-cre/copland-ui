@@ -1,12 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from './Breadcrumb'
+import { Breadcrumb } from './Breadcrumb'
 
 const meta: Meta<typeof Breadcrumb> = {
   title: 'Components/ui/Breadcrumb',
@@ -20,11 +13,11 @@ const meta: Meta<typeof Breadcrumb> = {
 
 ## 構成要素
 - **\`Breadcrumb\`** — ルートコンテナ（\`nav\` 要素、\`aria-label="パンくずリスト"\`）
-- **\`BreadcrumbList\`** — 項目をラップする ordered list（\`ol\` 要素）
-- **\`BreadcrumbItem\`** — 各項目のラッパー（\`li\` 要素）
-- **\`BreadcrumbLink\`** — リンク要素（\`asChild\` に対応）
-- **\`BreadcrumbSeparator\`** — 区切りアイコン（デフォルト: \`ChevronRight\`）
-- **\`BreadcrumbPage\`** — 現在地テキスト（\`aria-current="page"\` 適用）
+- **\`Breadcrumb.List\`** — 項目をラップする ordered list（\`ol\` 要素）
+- **\`Breadcrumb.Item\`** — 各項目のラッパー（\`li\` 要素）
+- **\`Breadcrumb.Link\`** — リンク要素（\`asChild\` に対応）
+- **\`Breadcrumb.Separator\`** — 区切りアイコン（デフォルト: \`ChevronRight\`）
+- **\`Breadcrumb.Page\`** — 現在地テキスト（\`aria-current="page"\` 適用）
         `.trim(),
       },
     },
@@ -40,19 +33,19 @@ export const Default: Story = {
   name: 'default',
   render: () => (
     <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="#">ホーム</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink href="#">ドキュメント</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>クイックスタート</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
+      <Breadcrumb.List>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="#">ホーム</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="#">ドキュメント</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Page>クイックスタート</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
     </Breadcrumb>
   ),
 }

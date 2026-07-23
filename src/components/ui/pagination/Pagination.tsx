@@ -13,8 +13,8 @@ type PaginationItemProps = ComponentProps<'button'> & {
 type PaginationEllipsisProps = ComponentProps<'span'>
 type PaginationPrevNextProps = ComponentProps<'button'>
 
-// ---- Pagination（ルートコンテナ） -------------------------------------------
-export const Pagination = ({ children, className, ...props }: PaginationRootProps) => {
+// ---- PaginationRoot（ルートコンテナ） -------------------------------------------
+export const PaginationRoot = ({ children, className, ...props }: PaginationRootProps) => {
   return (
     <nav
       aria-label="ページネーション"
@@ -94,3 +94,14 @@ export const PaginationEllipsis = ({
     </span>
   )
 }
+
+// ---- Compound Component マッピング -----------------------------------------
+
+export const Pagination = Object.assign(PaginationRoot, {
+  Item: PaginationItem,
+  Prev: PaginationPrev,
+  Next: PaginationNext,
+  Ellipsis: PaginationEllipsis,
+})
+
+export default Pagination

@@ -16,13 +16,13 @@ type BreadcrumbLinkProps = ComponentProps<'a'> & {
 type BreadcrumbPageProps = ComponentProps<'span'>
 type BreadcrumbSeparatorProps = ComponentProps<'li'>
 
-// ---- Breadcrumb (ルート) --------------------------------------------------
+// ---- BreadcrumbRoot (ルート) ------------------------------------------------
 
 /**
  * パンくずリストのコンテナ。
  * アクセシビリティのために `aria-label="パンくずリスト"` を持っています。
  */
-export const Breadcrumb = ({ className, ...props }: BreadcrumbRootProps) => {
+export const BreadcrumbRoot = ({ className, ...props }: BreadcrumbRootProps) => {
   return <nav aria-label="パンくずリスト" className={clsx(styles.root, className)} {...props} />
 }
 
@@ -88,3 +88,15 @@ export const BreadcrumbSeparator = ({
     </li>
   )
 }
+
+// ---- Compound Component マッピング -----------------------------------------
+
+export const Breadcrumb = Object.assign(BreadcrumbRoot, {
+  List: BreadcrumbList,
+  Item: BreadcrumbItem,
+  Link: BreadcrumbLink,
+  Page: BreadcrumbPage,
+  Separator: BreadcrumbSeparator,
+})
+
+export default Breadcrumb

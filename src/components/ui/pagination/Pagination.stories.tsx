@@ -1,12 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { useState } from 'react'
-import {
-  Pagination,
-  PaginationItem,
-  PaginationPrev,
-  PaginationNext,
-  PaginationEllipsis,
-} from './Pagination'
+import { Pagination } from './Pagination'
 
 const meta: Meta<typeof Pagination> = {
   title: 'Components/ui/Pagination',
@@ -20,10 +14,10 @@ const meta: Meta<typeof Pagination> = {
 
 ## 構成要素
 - **\`Pagination\`** — ルートコンテナ（\`nav\` 要素、\`role="navigation"\`）
-- **\`PaginationPrev\`** — 前のページへ戻るためのアイコンボタン
-- **\`PaginationItem\`** — ページ番号ボタン（\`isCurrent\` で現在位置を明示）
-- **\`PaginationEllipsis\`** — 中間ページを省略するための記号（\`...\`）
-- **\`PaginationNext\`** — 次のページへ進むためのアイコンボタン
+- **\`Pagination.Prev\`** — 前のページへ戻るためのアイコンボタン
+- **\`Pagination.Item\`** — ページ番号ボタン（\`isCurrent\` で現在位置を明示）
+- **\`Pagination.Ellipsis\`** — 中間ページを省略するための記号（\`...\`）
+- **\`Pagination.Next\`** — 次のページへ進むためのアイコンボタン
         `.trim(),
       },
     },
@@ -39,13 +33,13 @@ export const Default: Story = {
   name: 'default',
   render: () => (
     <Pagination>
-      <PaginationPrev disabled />
-      <PaginationItem isCurrent>1</PaginationItem>
-      <PaginationItem>2</PaginationItem>
-      <PaginationItem>3</PaginationItem>
-      <PaginationItem>4</PaginationItem>
-      <PaginationItem>5</PaginationItem>
-      <PaginationNext />
+      <Pagination.Prev disabled />
+      <Pagination.Item isCurrent>1</Pagination.Item>
+      <Pagination.Item>2</Pagination.Item>
+      <Pagination.Item>3</Pagination.Item>
+      <Pagination.Item>4</Pagination.Item>
+      <Pagination.Item>5</Pagination.Item>
+      <Pagination.Next />
     </Pagination>
   ),
 }
@@ -56,15 +50,15 @@ export const WithEllipsis: Story = {
   name: 'example / 省略記号あり',
   render: () => (
     <Pagination>
-      <PaginationPrev />
-      <PaginationItem>1</PaginationItem>
-      <PaginationEllipsis />
-      <PaginationItem>4</PaginationItem>
-      <PaginationItem isCurrent>5</PaginationItem>
-      <PaginationItem>6</PaginationItem>
-      <PaginationEllipsis />
-      <PaginationItem>10</PaginationItem>
-      <PaginationNext />
+      <Pagination.Prev />
+      <Pagination.Item>1</Pagination.Item>
+      <Pagination.Ellipsis />
+      <Pagination.Item>4</Pagination.Item>
+      <Pagination.Item isCurrent>5</Pagination.Item>
+      <Pagination.Item>6</Pagination.Item>
+      <Pagination.Ellipsis />
+      <Pagination.Item>10</Pagination.Item>
+      <Pagination.Next />
     </Pagination>
   ),
 }
@@ -83,23 +77,23 @@ export const Interactive: Story = {
           現在のページ: <strong>{currentPage}</strong> / {totalPages}
         </p>
         <Pagination>
-          <PaginationPrev
+          <Pagination.Prev
             disabled={currentPage === 1}
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
           />
           {Array.from({ length: totalPages }, (_, i) => {
             const page = i + 1
             return (
-              <PaginationItem
+              <Pagination.Item
                 key={page}
                 isCurrent={currentPage === page}
                 onClick={() => setCurrentPage(page)}
               >
                 {page}
-              </PaginationItem>
+              </Pagination.Item>
             )
           })}
-          <PaginationNext
+          <Pagination.Next
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
           />

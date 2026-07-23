@@ -14,13 +14,13 @@ interface InputFieldProps extends ComponentProps<'input'> {
   error?: boolean
 }
 
-// ---- Input（ルートコンテナ） -----------------------------------------------
+// ---- InputRoot（ルートコンテナ） -----------------------------------------------
 
 /**
  * Input のルートコンテナ。
  * 子に InputHeader・InputField を配置して使用する。
  */
-export const Input = ({ children, className, ...props }: InputRootProps) => {
+export const InputRoot = ({ children, className, ...props }: InputRootProps) => {
   return (
     <div {...props} className={clsx(styles.root, className)}>
       {children}
@@ -89,3 +89,15 @@ export const InputRow = ({ children, className, ...props }: InputRowProps) => {
     </div>
   )
 }
+
+// ---- Compound Component マッピング -----------------------------------------
+
+export const Input = Object.assign(InputRoot, {
+  Header: InputHeader,
+  Label: InputLabel,
+  Hint: InputHint,
+  Field: InputField,
+  Row: InputRow,
+})
+
+export default Input

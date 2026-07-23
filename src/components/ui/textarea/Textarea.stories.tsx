@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { useState } from 'react'
-import { Textarea, TextareaHeader, TextareaLabel, TextareaCounter, TextareaField } from './Textarea'
+import { Textarea } from './Textarea'
 
-const meta: Meta<typeof TextareaField> = {
+const meta: Meta<typeof Textarea.Field> = {
   title: 'Components/ui/Textarea',
-  component: TextareaField,
+  component: Textarea.Field,
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -14,10 +14,10 @@ const meta: Meta<typeof TextareaField> = {
 
 ## 構成要素
 - **\`Textarea\`** — ルートコンテナ（\`display: flex; flex-direction: column\`）
-- **\`TextareaHeader\`** — ラベルとカウンターを横並びにするヘッダー行
-- **\`TextareaLabel\`** — ラベルテキスト（\`htmlFor\` で input と紐づける）
-- **\`TextareaCounter\`** — 文字数カウンターなどを表示するテキスト
-- **\`TextareaField\`** — テキスト入力フィールド本体
+- **\`Textarea.Header\`** — ラベルとカウンターを横並びにするヘッダー行
+- **\`Textarea.Label\`** — ラベルテキスト（\`htmlFor\` で input と紐づける）
+- **\`Textarea.Counter\`** — 文字数カウンターなどを表示するテキスト
+- **\`Textarea.Field\`** — テキスト入力フィールド本体
 
 ## 特徴
 - **自動高さ調整** — \`autosize\` ライブラリで入力に応じて高さが伸縮します
@@ -50,7 +50,7 @@ const meta: Meta<typeof TextareaField> = {
 }
 
 export default meta
-type Story = StoryObj<typeof TextareaField>
+type Story = StoryObj<typeof Textarea.Field>
 
 // ---- Default ---------------------------------------------------------------
 
@@ -58,10 +58,10 @@ export const Default: Story = {
   name: 'default',
   render: (args) => (
     <Textarea>
-      <TextareaHeader>
-        <TextareaLabel htmlFor="textarea-default">メモ</TextareaLabel>
-      </TextareaHeader>
-      <TextareaField {...args} id="textarea-default" placeholder="テキストを入力してください" />
+      <Textarea.Header>
+        <Textarea.Label htmlFor="textarea-default">メモ</Textarea.Label>
+      </Textarea.Header>
+      <Textarea.Field {...args} id="textarea-default" placeholder="テキストを入力してください" />
     </Textarea>
   ),
 }
@@ -75,13 +75,13 @@ export const WithCounter: Story = {
     const [value, setValue] = useState('')
     return (
       <Textarea>
-        <TextareaHeader>
-          <TextareaLabel htmlFor="textarea-counter">コメント</TextareaLabel>
-          <TextareaCounter>
+        <Textarea.Header>
+          <Textarea.Label htmlFor="textarea-counter">コメント</Textarea.Label>
+          <Textarea.Counter>
             {value.length} / {maxLength}
-          </TextareaCounter>
-        </TextareaHeader>
-        <TextareaField
+          </Textarea.Counter>
+        </Textarea.Header>
+        <Textarea.Field
           id="textarea-counter"
           maxLength={maxLength}
           placeholder="200字以内で入力してください"
@@ -99,10 +99,10 @@ export const ErrorState: Story = {
   name: 'state / error',
   render: () => (
     <Textarea>
-      <TextareaHeader>
-        <TextareaLabel htmlFor="textarea-error">フィードバック</TextareaLabel>
-      </TextareaHeader>
-      <TextareaField
+      <Textarea.Header>
+        <Textarea.Label htmlFor="textarea-error">フィードバック</Textarea.Label>
+      </Textarea.Header>
+      <Textarea.Field
         id="textarea-error"
         error
         defaultValue="入力内容にエラーがあります。"
@@ -116,10 +116,10 @@ export const DisabledState: Story = {
   name: 'state / disabled',
   render: () => (
     <Textarea>
-      <TextareaHeader>
-        <TextareaLabel htmlFor="textarea-disabled">備考</TextareaLabel>
-      </TextareaHeader>
-      <TextareaField
+      <Textarea.Header>
+        <Textarea.Label htmlFor="textarea-disabled">備考</Textarea.Label>
+      </Textarea.Header>
+      <Textarea.Field
         id="textarea-disabled"
         disabled
         defaultValue="この項目は編集できません。"
@@ -136,16 +136,16 @@ export const MinRows: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <Textarea>
-        <TextareaHeader>
-          <TextareaLabel htmlFor="textarea-rows-2">minRows=2（デフォルト）</TextareaLabel>
-        </TextareaHeader>
-        <TextareaField id="textarea-rows-2" placeholder="2行分の高さからスタート" />
+        <Textarea.Header>
+          <Textarea.Label htmlFor="textarea-rows-2">minRows=2（デフォルト）</Textarea.Label>
+        </Textarea.Header>
+        <Textarea.Field id="textarea-rows-2" placeholder="2行分の高さからスタート" />
       </Textarea>
       <Textarea>
-        <TextareaHeader>
-          <TextareaLabel htmlFor="textarea-rows-5">minRows=5</TextareaLabel>
-        </TextareaHeader>
-        <TextareaField id="textarea-rows-5" minRows={5} placeholder="5行分の高さからスタート" />
+        <Textarea.Header>
+          <Textarea.Label htmlFor="textarea-rows-5">minRows=5</Textarea.Label>
+        </Textarea.Header>
+        <Textarea.Field id="textarea-rows-5" minRows={5} placeholder="5行分の高さからスタート" />
       </Textarea>
     </div>
   ),

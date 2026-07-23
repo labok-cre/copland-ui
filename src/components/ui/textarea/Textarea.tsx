@@ -17,13 +17,13 @@ interface TextareaFieldProps extends ComponentProps<'textarea'> {
   error?: boolean
 }
 
-// ---- Textarea（ルートコンテナ） -------------------------------------------
+// ---- TextareaRoot（ルートコンテナ） -------------------------------------------
 
 /**
  * Textarea のルートコンテナ。
  * 子に TextareaHeader・TextareaField を配置して使用する。
  */
-export const Textarea = ({ children, className, ...props }: TextareaRootProps) => {
+export const TextareaRoot = ({ children, className, ...props }: TextareaRootProps) => {
   return (
     <div {...props} className={clsx(styles.root, className)}>
       {children}
@@ -99,3 +99,14 @@ export const TextareaField = ({
     />
   )
 }
+
+// ---- Compound Component マッピング -----------------------------------------
+
+export const Textarea = Object.assign(TextareaRoot, {
+  Header: TextareaHeader,
+  Label: TextareaLabel,
+  Counter: TextareaCounter,
+  Field: TextareaField,
+})
+
+export default Textarea
